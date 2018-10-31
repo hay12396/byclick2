@@ -1,0 +1,14 @@
+.navigation-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 100%;
+  .on-button {
+    color: #fff;
+  }
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+  }
+}

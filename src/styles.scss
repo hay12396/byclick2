@@ -1,0 +1,300 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./css-parts/_vars";
+@import "./css-parts/_fonts-decleration";
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $general-background-color;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+* {
+  font-family: 'erica-regular', sans-serif;
+}
+
+router-outlet {
+  margin: 0!important;
+}
+.nextButton {
+  border-radius: 20px !important;
+  width: 152px;
+  background-color: #FF6300;
+  text-align: center;
+  margin-left: 5px !important;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 160px!important;
+  width: 100vw;
+  //height: 86vh;
+  .middle-container {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 750px; //39.0625%;
+      height: 2500px;
+    }
+  }
+}
+.stepper {
+  flex-direction: row;
+  align-self: flex-end;
+  width: 121px;
+  margin-right: 30px;
+  height: 30px;
+  margin-top: 20px;
+  //background-color: #FF6300;
+  p {
+    text-align: center;
+    vertical-align: baseline;
+    line-height: 0;
+  }
+}
+.data-disclaimer {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%!important;
+  margin: 0;
+  .data-disclaimer_headline {
+    width: 100%;
+    p {
+      width: 100%;
+      color: $headline-color;
+      font-family: 'Erica', sans-serif;
+      line-height: 30px;
+      font-size: 2.25rem;
+      margin: 0;
+    }
+  }
+  .data-disclaimer_headline__second {
+    width: 100%;
+    p {
+      width: 100%;
+      color: $headline-color;
+      font-family: 'Erica', sans-serif;
+      line-height: 18px;
+      font-size: 1.25rem;
+      margin: 0;
+    }
+  }
+  .data-disclaimer_line {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-self: flex-start;
+    width: 100%!important;
+    p {
+      width: 100%;
+      color: $writing-color;
+      font-family: 'Erica', sans-serif;
+      line-height: 24px;
+      font-size: 1.0625rem;
+    }
+  }
+
+  .data-disclaimer_warning {
+    width: 100%;
+    p {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      color: $warning-color;
+      font-family: 'Erica', sans-serif;
+      font-size: 1.125rem;
+      font-weight: bold;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 40px;
+      background-color: $warning-background-color;
+    }
+  }
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.inner-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 77.3333%!important;
+  p {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+.two-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+.mat-hint, .mat-right {
+  font-size: .8rem !important;
+  color: $writing-color !important;
+}
+.mat-checkbox {
+  margin-left: 10px;
+}
+
+.inside-form {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $writing-color;
+  width: 100%;
+}
+.setCheckBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  .checkbox-mat {
+    margin-top: 20px;
+  }
+}
+
+.go-to-page {
+  border: 2px solid $buttons-color;
+  border-radius: 20px !important;
+  height: 54px;
+  width: 240px;
+  color: $white-color;
+  font-family: EricaSans, sans-serif;
+  font-size: 22px;
+  line-height: 23px;
+  text-align: center;
+  cursor: pointer;
+  background-color: $buttons-color;
+  margin-top: 50px;
+}
+.click-back {
+  display: inline-flex;
+  flex-direction: row;
+  align-self: baseline;
+  font-size: 22px;
+  color: $buttons-color;
+  font-weight: bold;
+}
+.get-back-header {
+  height: 20px;
+  align-self: center;
+}
+.command-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.btn1 {
+  width: 50px!important;
+  height: 50px!important;
+  overflow: visible;
+  &:hover {
+    background-color: $background-color;
+  }
+}
+.mat-button-toggle-group{
+  align-self: flex-start!important;
+}
+.mat-button-toggle, .button-radio{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 131px!important;
+  height: 81px!important;
+  overflow: visible;
+  &:hover  {
+    background-color: $background-color !important;
+    color: white !important;
+  }
+}
+
+.mat-button-toggle, .contact-button-radio, .client-button-radio{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 131px!important;
+  height: 81px!important;
+  overflow: visible;
+}
+.contact-button-radio .mat-white {
+  display: none;
+}
+.contact-button-radio:hover .mat-black {
+  display: none;
+}
+.contact-button-radio:hover .mat-white {
+  display: flex;
+}
+.contact-button-radio:focus .mat-white {
+  display: flex;
+}
+
+.client-button-radio .mat-white {
+  display: none;
+}
+.client-button-radio:hover .mat-black {
+  display: none;
+}
+.client-button-radio:hover .mat-white {
+  display: flex;
+}
+.client-button-radio .cdk-focused .mat-white {
+  display: flex;
+}
+
+.mat-button-toggle-checked {
+  background-color: $background-color !important;
+  color: white !important;
+  fill: white;
+}
+
+.mat-icon {
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  color: red;
+}
+.button-header {
+  width: 100%;
+  height: 10px;
+  margin-top: -20px;
+}

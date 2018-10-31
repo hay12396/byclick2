@@ -1,0 +1,405 @@
+<app-header></app-header>
+<div class="main-container">
+  <div class="middle-container">
+    <div class="container">
+      <div class="row">
+        <div class="stepper">
+          STEPPER
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class=" inner-row data-disclaimer">
+          <div class="data-disclaimer_headline">
+            <p> פרטי המבוטח</p>
+          </div>
+          <div class="data-disclaimer_line">
+            <p>
+              חשוב לדעת, כל השאלות מתייחסות למבוטח. זה שעבורו מוגשת תביעת הסיעוד.
+            </p>
+          </div>
+          <div class="data-disclaimer_warning">
+            <p>
+              <mat-icon>info</mat-icon>&nbsp; כל השדות בבקשת התביעה הינם שדות חובה.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row">
+          <form [formGroup]="form" (ngSubmit)="saveClient()">
+            <div formGroupName="basicInfo" class="basic-info required">
+              <mat-form-field>
+                <mat-label>שם פרטי</mat-label>
+                <input
+                  #firstName
+                  matInput
+                  required
+                  type="text"
+                  (focus)="onFocus($event)"
+                  placeholder="שם פרטי"
+                  formControlName="firstName">
+                <mat-error
+                  class="error"
+                  *ngIf="requiredForm('firstName')">
+                  יש לעדכן שם פרטי
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>שם משפחה</mat-label>
+                <input
+                  #lastName
+                  matInput
+                  required
+                  type="text"
+                  (focus)="onFocus($event)"
+                  placeholder="שם משפחה"
+                  formControlName="lastName">
+                <mat-error>
+                  class="error"
+                  *ngIf="*ngIf="requiredForm('lastName')">
+                  יש לעדכן שם משפחה
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>מספר תעודת זהות</mat-label>
+                <input
+                  #idNumber
+                  matInput
+                  required
+                  type="number"
+                  maxlength="9"
+                  minlength="9"
+                  (focus)="onFocus($event)"
+                  placeholder="מספר תעודת זהות"
+                  formControlName="idNumber">
+                <mat-hint>
+                  כולל ספרת ביקורת. סך הכל 9 ספרות
+                </mat-hint>
+                <mat-hint align="end">
+                  {{idNumber.value?.length || 0 }} / 9
+                </mat-hint>
+                <mat-error>
+                  *ngIf="requiredForm('idNumber')">
+                  יש לעדכן תעודת זהות כולל ספרת ביקורת
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>קופ"ח מכבי</mat-label>
+                <input
+                  #hmo
+                  matInput
+                  required
+                  type="text"
+                  (focus)="onFocus($event)"
+                  placeholder="קופת חולים מכבי"
+                  formControlName="hmo">
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  #birthday
+                  matInput
+                  required
+                  (dateChange)="endDateChange($event)"
+                  [matDatepicker]="picker"
+                  placeholder="תאריך לידה"
+                  formControlName="birthday">
+                <mat-hint>
+                  DD/MM/YYYY
+                </mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div *ngIf="contactData" class="row" dir="rtl">
+        <div class=" inner-row data-disclaimer">
+          <div class="data-disclaimer_headline__second">
+            <p> פרטי איש קשר</p>
+          </div>
+          <div class="data-disclaimer_line">
+            <p>מידע בנוגע לאיש הקשר</p>
+          </div>
+          <div class="data-disclaimer_line">
+            <p>איש קשר לתביעה</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle
+              class="client-button-radio"
+              [checked]="isClientChecked"
+              (change)="selectedClient($event)"
+              value="client"
+            >
+              <div class="button-header">
+               מבוטח
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="contact-button-radio"
+              [checked]="isContactChecked"
+              (change)="selectedClient($event)"
+              value="contact">
+              <div class="button-header">
+                איש קשר
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+          <p>אם המבוטח קטין, נדרש איש קשר</p>
+        </div>
+        <div class="inner-row">
+          <form [formGroup]="formContact" (ngSubmit)="saveClient()" class="client-data">
+            <div formGroupName="contactInfo" class="basic-info required">
+              <mat-form-field>
+                <mat-label>שם פרטי</mat-label>
+                <input
+                  #contactFirstName
+                  matInput
+                  required
+                  type="text"
+                  (focus)="onFocus($event)"
+                  placeholder="שם פרטי"
+                  formControlName="contactFirstName">
+                <mat-error
+                  class="error"
+                  *ngIf="requiredFormContact('contactFirstName')">
+                  יש לעדכן שם פרטי
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>שם משפחה</mat-label>
+                <input
+                  #contactLastName
+                  matInput
+                  required
+                  type="text"
+                  (focus)="onFocus($event)"
+                  placeholder="שם משפחה"
+                  formControlName="contactLastName">
+                <mat-error
+                  class="error"
+                  *ngIf="requiredFormContact('contactLastName')">
+                  יש לעדכן שם משפחה
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>מספר תעודת זהות</mat-label>
+                <input
+                  #contactIdNumber
+                  matInput
+                  required
+                  type="number"
+                  maxlength="9"
+                  minlength="9"
+                  (focus)="onFocus($event)"
+                  placeholder="מספר תעודת זהות"
+                  formControlName="contactIdNumber">
+                <mat-hint>
+                  כולל ספרת ביקורת. סך הכל 9 ספרות
+                </mat-hint>
+                <mat-hint align="end">
+                  {{idNumber.value?.length || 0 }} / 9
+                </mat-hint>
+                <mat-error *ngIf="requiredFormContact('contactIdNumber')">
+                  יש לעדכן תעודת זהות כולל ספרת ביקורת
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>טלפון סלולארי</mat-label>
+                <input
+                  #contactCellPhone
+                  matInput
+                  required
+                  type="number"
+                  maxlength="10"
+                  minlength="10"
+                  (focus)="onFocus($event)"
+                  placeholder="טלפון נייד"
+                  formControlName="contactCellPhone">
+                <mat-hint>
+                  מס' סלולארי בן 10 ספרות
+                </mat-hint>
+                <mat-hint align="end">
+                  {{contactCellPhone.value?.length || 0 }} / 10
+                </mat-hint>
+                <mat-error *ngIf="requiredFormContact('contactCellPhone')">
+                  יש לעדכן מספר סלולארי מלא בן 10 ספרות
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div *ngIf="contactData" class="row" dir="rtl">
+        <div class=" inner-row data-disclaimer">
+          <div class="data-disclaimer_line">
+            <p> קרבה</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle
+              class="button-radio"
+              [checked]="isSpouseChecked"
+              (change)="selectedRelation($event)"
+              value="spouse"
+            >
+              <div class="button-header">
+               בן זוג
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="button-radio"
+              [checked]="isChildChecked"
+              (change)="selectedRelation($event)"
+              value="child">
+              <div class="button-header">
+                ילדים
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="button-radio"
+              [checked]="isContactRelatedChecked"
+              (change)="selectedRelation($event)"
+              value="contact">
+              <div class="button-header">
+                איש קשר
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="inner-row">
+          <form [formGroup]="formContact" (ngSubmit)="saveClient()" class="client-data">
+            <div formGroupName="contactInfo" class="basic-info required">
+              <mat-form-field>
+                <mat-label>סוג קרבה</mat-label>
+                <input
+                  #contactRelationType
+                  matInput
+                  required
+                  type="text"
+                  (focus)="onFocus($event)"
+                  placeholder="סוג קרבה"
+                  formControlName="contactRelationType"
+                >
+                <mat-error *ngIf="requiredFormContact('contactRelationType')">
+                  יש לעדכן את סוג הקרבה
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div *ngIf="contactData" class="row" dir="rtl">
+        <div class=" inner-row data-disclaimer">
+          <div class="data-disclaimer_line">
+            <p>דסקליימר של המבוטח שהוא מאשר שזה איש הקשר מטעמו</p>
+          </div>
+          <div class="data-disclaimer_headline__second">
+            <p>פרטי ההתקשרות</p>
+          </div>
+          <div class="data-disclaimer_line">
+            <p>התכתובות בתביעה יהיו לאיש הקשר!</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <form [formGroup]="formContact" (ngSubmit)="saveClient()" class="client-data">
+            <div formGroupName="contactInfo" class="basic-info required">
+              <mat-form-field>
+                <mat-label>דוא"ל</mat-label>
+                <input
+                  #contactEmail
+                  matInput
+                  required
+                  type="email"
+                  (focus)="onFocus($event)"
+                  placeholder="דואר אלקטרוני"
+                  formControlName="contactEmail"
+                >
+                <mat-hint>
+                  דוגמא: fnx@gmail.com
+                </mat-hint>
+                <mat-error *ngIf="requiredFormContact('contactEmail')">
+                  יש לעדכן דואר אלקטרוני
+                </mat-error>
+              </mat-form-field>
+              <div class="setCheckBox">
+                <mat-checkbox (change)="onChange($event)" class="checkbox-mat">
+                  קבלת תכתובות רק באמצעות הדואר
+                </mat-checkbox>
+              </div>
+              <div *ngIf="postOffice">
+                <mat-form-field>
+                  <mat-label>פרטי הכתובת בה שוהה המבוטח</mat-label>
+                  <mat-select #contactCity placeholder="עיר">
+                    <mat-option *ngFor="let city of cities"
+                                [value]="city"
+                                (click)="selectCity(city)">
+                      {{ city.name }}
+                    </mat-option>
+                  </mat-select>
+                  <input type="text">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>רחוב</mat-label>
+                  <mat-select #contactStreet placeholder="רחוב">
+                    <mat-option *ngFor="let street of streets"
+                        [value]="street"
+                        (click)="selectStreet(street)">
+                      {{ street.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div class="two-fields">
+                  <div class="field-one">
+                    <mat-form-field>
+                  <mat-label>מספר בית</mat-label>
+                  <input
+                    #contactHouseNumber
+                    matInput
+                    required
+                    type="text"
+                    (focus)="onFocus($event)"
+                    placeholder="מספר בית"
+                    formControlName="contactHouseNumber"
+                  >
+                  <mat-error *ngIf="requiredFormContact('contactHouseNumber')">
+                    יש לעדכן את מספר הבית
+                  </mat-error>
+                </mat-form-field>
+                  </div>
+                  <div class="field-two">
+                    <mat-form-field>
+                      <mat-label>מיקוד</mat-label>
+                      <input
+                        #contactZipCode
+                        matInput
+                        required
+                        type="text"
+                        (focus)="onFocus($event)"
+                        placeholder="מיקוד"
+                        formControlName="contactZipCode"
+                      >
+                      <mat-error *ngIf="requiredFormContact('contactZipCode')">
+                        יש לעדכן את המיקוד
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <app-lower-navigation class="row"
+          goToPage="event-details" getBack="open" buttonData="לפרטי האירוע"
+        >
+        </app-lower-navigation>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<mat-icon svgIcon="client">client</mat-icon>-->

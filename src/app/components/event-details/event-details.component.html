@@ -1,0 +1,300 @@
+<app-header></app-header>
+<div class="main-container">
+  <div class="middle-container">
+    <div class="container">
+      <div class="row">
+        <div class="stepper">
+          STEPPER
+        </div>
+      </div>
+      <div class="row">
+        <div class=" inner-row data-disclaimer">
+          <div class="data-disclaimer_headline">
+            <p> פרטי האירוע</p>
+          </div>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row">
+          <form [formGroup]="form" (ngSubmit)="saveEvent()" class="event-data">
+            <div formGroupName="eventData" class="required">
+              <mat-form-field>
+                <input
+                  #eventDate
+                  matInput
+                  required
+                  [matDatepicker]="picker" placeholder="תאריך האירוע"
+                  formControlName="eventDate">
+                <mat-hint>
+                  DD/MM/YYYY
+                </mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row data-disclaimer">
+          <div class="data-disclaimer_line">
+            <p>גורם תביעה</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle
+              class="client-button-radio"
+              [checked]="isIllnessChecked"
+              (change)="causeSelected($event)"
+              value="illness"
+            >
+              <div class="button-header">
+                מחלה
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="contact-button-radio"
+              [checked]="isAccidentChecked"
+              (change)="causeSelected($event)"
+              value="accident">
+              <div class="button-header">
+                תאונה
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row">
+          <form [formGroup]="form" (ngSubmit)="saveEvent()" class="event-data">
+            <div formGroupName="eventData" class="required">
+              <mat-form-field>
+                <mat-label>פירוט מחלה/תאונה</mat-label>
+                <input
+                  #causeDetails
+                  matInput
+                  required
+                  type="text"
+                  placeholder="פירוט מחלה/תאונה"
+                  formControlName="causeDetails">
+                <mat-error
+                  class="error"
+                  *ngIf="requiredForm('causeDetails')">
+                  יש לעדכן פירוט מחלה/תאונה
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row data-disclaimer">
+          <div class="data-disclaimer_line">
+            <p>קיימת פוליסה/זכאות בחברת ביטוח אחרת</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle
+              class="client-button-radio"
+              [checked]="isAnotherPolicy"
+              (change)="checkAnotherPolicy($event)"
+              value="yes"
+            >
+              <div class="button-header">
+                כן
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="contact-button-radio"
+              [checked]="isNotAnotherPolicy"
+              (change)="checkAnotherPolicy($event)"
+              value="no">
+              <div class="button-header">
+                לא
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row">
+          <form [formGroup]="form" (ngSubmit)="saveEvent()" class="event-data">
+            <div formGroupName="eventData" class="required">
+              <mat-form-field>
+                <mat-label>שם חברה</mat-label>
+                <input
+                  #insuranceCompanyName
+                  matInput
+                  required
+                  type="text"
+                  placeholder="שם חברה"
+                  formControlName="insuranceCompanyName">
+                <mat-error
+                  class="error"
+                  *ngIf="requiredForm('insuranceCompanyName')">
+                  יש לעדכן את שם חברת הביטוח
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class=" inner-row data-disclaimer" fxLayout="column">
+          <div class="data-disclaimer_line">
+            <p>האם המבוטח מעסיק עובד זר</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle
+              class="button-radio"
+              [checked]="isClientHome"
+              (change)="selectedResidence($event)"
+              value="home"
+            >
+            <div class="button-header">
+              בית
+            </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="button-radio"
+              [checked]="isClientInstitute"
+              (change)="selectedResidence($event)"
+              value="institute">
+              <div class="button-header">
+                מוסד
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="button-radio"
+              [checked]="isOtherTypeResidence"
+              (change)="selectedResidence($event)"
+              value="other">
+              <div class="button-header">
+                אחר
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class=" inner-row data-disclaimer">
+          <div class="data-disclaimer_line">
+            <p>היכן המבוטח שוהה</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <form [formGroup]="form" (ngSubmit)="saveEvent()" class="event-data">
+            <div formGroupName="generalData" class="required">
+              <mat-form-field>
+                <mat-label>סוג המוסד</mat-label>
+                <mat-select #institute placeholder="סוג המוסד">
+                  <mat-option *ngFor="let institute of institutes"
+                              [value]="institute"
+                              (click)="selectInstitute(institute)">
+                    {{ institute.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-hint>
+                  רחוב ומספר, עיר, מיקוד
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>שם המוסד</mat-label>
+                <input
+                  #institutionName
+                  matInput
+                  required
+                  type="text"
+                  placeholder="שם המוסד"
+                  formControlName="institutionName">
+                <mat-error
+                  class="error"
+                  *ngIf="requiredGeneral('institutionName')">
+                  ייש לעדכן את שם המוסד
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row data-disclaimer">
+          <div class="data-disclaimer_line">
+            <p>האם המבוטח מעסיק עובד זר</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle
+              class="client-button-radio"
+              [checked]="isForeignWorkerEmployment"
+              (change)="foreignWorkerSelect($event)"
+              value="yes"
+            >
+              <div class="button-header">
+                כן
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="contact-button-radio"
+              [checked]="isNotForeignWorkerEmployment"
+              (change)="foreignWorkerSelect($event)"
+              value="no">
+              <div class="button-header">
+                לא
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row data-disclaimer">
+          <div class="data-disclaimer_line">
+            <p>זכאות מגורם אחר</p>
+          </div>
+        </div>
+        <div class="inner-row">
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle
+              class="client-button-radio"
+              [checked]="isEligibilityFromAnotherParty"
+              (change)="eligibilitySelected($event)"
+              value="illness"
+            >
+              <div class="button-header">
+                כן
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="contact-button-radio"
+              [checked]="isNotEligibilityFromAnotherParty"
+              (change)="eligibilitySelected($event)"
+              value="no">
+              <div class="button-header">
+                לא
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+          <mat-form-field>
+            <mat-label>גורמי הזכאות</mat-label>
+            <mat-select #entitlement placeholder="גורמי הזכאות">
+              <mat-option *ngFor= "let entitlement of entitlements"
+                          [value]="entitlement"
+                          (click)="selectEntitlement(entitlement)">
+                {{ entitlement.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <app-lower-navigation class="row"
+          goToPage="doc-uploads" getBack="personal-data" buttonData="להעלאת מסמכים"
+        >
+        </app-lower-navigation>
+      </div>
+    </div>
+  </div>
+</div>

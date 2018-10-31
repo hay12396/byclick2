@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="main-container">
+  <div class="middle-container">
+    <div class="container">
+      <div class="row">
+        <div class="stepper">
+          STEPPER
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class=" inner-row data-disclaimer">
+          <div class="data-disclaimer_headline">
+            <p>צירוף מסמכים</p>
+          </div>
+        </div>
+      </div>
+      <div class="row" dir="rtl">
+        <div class="inner-row">
+          <form [formGroup]="form" class="document-data">
+            <div formGroupName="documents" class="required">
+              <mat-form-field>
+                <mat-label>בחר את סוג המסמך</mat-label>
+                <mat-select #fileTypes placeholder="בחר את סוג המסמך">
+                  <mat-option *ngFor="let doc of documents"
+                              [value]="doc.name"
+                              (click)="selectDocType(doc)">
+                    {{ doc.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <input type="file"
+                class="uploadHiddenButton"
+                (change)="fileUpload($event.target.files[0])" #fileToUpload>
+              <button mat-button svgIcon="attach_file" class="uploadSelect" (click)="fileToUpload.click()">
+                <mat-icon>attach_file</mat-icon>
+                צרף קובץ
+              </button>
+            </div>
+            <ng-container *ngIf="uploadSuccess">
+              העלאת הקובץ {{uploadedName}} הצליחה
+            </ng-container>
+          </form>
+        </div>
+      </div>
+      <app-lower-navigation class="row"
+        goToPage="open" getBack="event-details" buttonData="לסיכום"
+      >
+      </app-lower-navigation>
+    </div>
+  </div>
+</div>

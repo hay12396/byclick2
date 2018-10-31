@@ -1,0 +1,18 @@
+@import "../../../css-parts/_vars";
+
+.client-data {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+
+.contact-svg {
+  width: 40px;
+  height: 40px;
+  overflow: visible;
+}
+
+

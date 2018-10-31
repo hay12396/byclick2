@@ -1,0 +1,23 @@
+@import "../../../css-parts/_vars";
+.header-container {
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+  height: $header-height;
+  margin-right: 36px;
+  background-color: $general-background-color;
+  overflow: hidden;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-right: 36px ;
+  width: 320px;
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}

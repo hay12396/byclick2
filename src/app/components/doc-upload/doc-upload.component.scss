@@ -1,0 +1,14 @@
+.document-data {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+.uploadHiddenButton {
+  display: none;
+}
+
+.uploadSelect {
+  font-size: 18px;
+}
