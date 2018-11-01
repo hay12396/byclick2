@@ -1,6 +1,6 @@
 import {MAT_DATE_LOCALE} from '@angular/material';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +20,7 @@ import { PersonalDataComponent } from './components/personal-data/personal-data.
 import {MessengerService} from './services/messenger.service';
 import { DataService } from './services/data-service.service';
 import {EventDetailsComponent} from './components/event-details/event-details.component';
+import {SummaryComponent} from "./components/summary/summary.component";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {EventDetailsComponent} from './components/event-details/event-details.co
     DocUploadComponent,
     FooterComponent,
     HeaderComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import {EventDetailsComponent} from './components/event-details/event-details.co
   providers: [
     DataService,
     MessengerService,
-    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    { provide: LOCALE_ID, useValue: 'he' }
   ],
   bootstrap: [AppComponent]
 })

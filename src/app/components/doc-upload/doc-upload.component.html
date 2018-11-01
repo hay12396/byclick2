@@ -8,9 +8,11 @@
         </div>
       </div>
       <div class="row" dir="rtl">
-        <div class=" inner-row data-disclaimer">
-          <div class="data-disclaimer_headline">
-            <p>צירוף מסמכים</p>
+        <div class=" inner-row">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_headline">
+              <p>צירוף מסמכים</p>
+            </div>
           </div>
         </div>
       </div>
@@ -31,10 +33,11 @@
               <input type="file"
                 class="uploadHiddenButton"
                 (change)="fileUpload($event.target.files[0])" #fileToUpload>
-              <button mat-button svgIcon="attach_file" class="uploadSelect" (click)="fileToUpload.click()">
+              <div class="uploadSelect"
+                      (click)="fileToUpload.click()">
                 <mat-icon>attach_file</mat-icon>
                 צרף קובץ
-              </button>
+              </div>
             </div>
             <ng-container *ngIf="uploadSuccess">
               העלאת הקובץ {{uploadedName}} הצליחה
@@ -43,7 +46,7 @@
         </div>
       </div>
       <app-lower-navigation class="row"
-        goToPage="open" getBack="event-details" buttonData="לסיכום"
+        goToPage="summary" getBack="event-details" buttonData="לסיכום פרטי הבקשה"
       >
       </app-lower-navigation>
     </div>

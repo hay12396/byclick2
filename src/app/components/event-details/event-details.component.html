@@ -3,14 +3,16 @@
   <div class="middle-container">
     <div class="container">
       <div class="row">
-        <div class="stepper">
-          STEPPER
-        </div>
+          <div class="stepper">
+            STEPPER
+          </div>
       </div>
       <div class="row">
-        <div class=" inner-row data-disclaimer">
-          <div class="data-disclaimer_headline">
-            <p> פרטי האירוע</p>
+        <div class="inner-row">
+          <div class=" inner-row data-disclaimer">
+            <div class="data-disclaimer_headline">
+              <p> פרטי האירוע</p>
+            </div>
           </div>
         </div>
       </div>
@@ -36,9 +38,11 @@
         </div>
       </div>
       <div class="row" dir="rtl">
-        <div class="inner-row data-disclaimer">
-          <div class="data-disclaimer_line">
-            <p>גורם תביעה</p>
+        <div class="inner-row">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_line">
+              <p>גורם תביעה</p>
+            </div>
           </div>
         </div>
         <div class="inner-row">
@@ -89,9 +93,11 @@
         </div>
       </div>
       <div class="row" dir="rtl">
-        <div class="inner-row data-disclaimer">
-          <div class="data-disclaimer_line">
-            <p>קיימת פוליסה/זכאות בחברת ביטוח אחרת</p>
+        <div class="inner-row ">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_line">
+              <p>קיימת פוליסה/זכאות בחברת ביטוח אחרת</p>
+            </div>
           </div>
         </div>
         <div class="inner-row">
@@ -142,12 +148,13 @@
         </div>
       </div>
       <div class="row" dir="rtl">
-        <div class=" inner-row data-disclaimer" fxLayout="column">
-          <div class="data-disclaimer_line">
-            <p>האם המבוטח מעסיק עובד זר</p>
-          </div>
-        </div>
+
         <div class="inner-row">
+            <div class="data-disclaimer">
+              <div class="data-disclaimer_line">
+                <p>היכן המבוטח שוהה</p>
+              </div>
+            </div>
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
               class="button-radio"
@@ -179,16 +186,12 @@
             </mat-button-toggle>
           </mat-button-toggle-group>
         </div>
-        <div class=" inner-row data-disclaimer">
-          <div class="data-disclaimer_line">
-            <p>היכן המבוטח שוהה</p>
-          </div>
-        </div>
+
         <div class="inner-row">
           <form [formGroup]="form" (ngSubmit)="saveEvent()" class="event-data">
             <div formGroupName="generalData" class="required">
               <mat-form-field>
-                <mat-label>סוג המוסד</mat-label>
+                <mat-label>פרטי כתובת בה שוהה המבוטח</mat-label>
                 <mat-select #institute placeholder="סוג המוסד">
                   <mat-option *ngFor="let institute of institutes"
                               [value]="institute"
@@ -199,6 +202,16 @@
                 <mat-hint>
                   רחוב ומספר, עיר, מיקוד
                 </mat-hint>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>סוג המוסד</mat-label>
+                <mat-select #institute placeholder="סוג המוסד">
+                  <mat-option *ngFor="let address of addresses"
+                              [value]="address"
+                              (click)="selectInstituteAddress(address)">
+                    {{ institute.name }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>שם המוסד</mat-label>
@@ -220,9 +233,11 @@
         </div>
       </div>
       <div class="row" dir="rtl">
-        <div class="inner-row data-disclaimer">
-          <div class="data-disclaimer_line">
-            <p>האם המבוטח מעסיק עובד זר</p>
+        <div class=" inner-row " fxLayout="column">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_line">
+              <p>האם המבוטח מעסיק עובד זר</p>
+            </div>
           </div>
         </div>
         <div class="inner-row">
@@ -250,9 +265,11 @@
         </div>
       </div>
       <div class="row" dir="rtl">
-        <div class="inner-row data-disclaimer">
-          <div class="data-disclaimer_line">
-            <p>זכאות מגורם אחר</p>
+        <div class="inner-row ">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_line">
+              <p>זכאות מגורם אחר</p>
+            </div>
           </div>
         </div>
         <div class="inner-row">

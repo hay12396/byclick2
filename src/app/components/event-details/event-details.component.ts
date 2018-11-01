@@ -26,7 +26,7 @@ export class EventDetailsComponent implements OnInit {
   isForeignWorkerEmployment;
   isNotForeignWorkerEmployment;
 
-  cities = [
+  addresses = [
     {name: 'תל אביב'},
     {name: 'ירושלים'},
     {name: 'חיפה'},
@@ -60,6 +60,7 @@ export class EventDetailsComponent implements OnInit {
       clientZipCode: ['', Validators.required]
     }),
     generalData: this.fb.group({
+      institutionAddress: ['', Validators.required],
       institutionType: ['', Validators.required],
       institutionName: ['', Validators.required],
       foreignWorkerEmployment: ['', Validators.required],
@@ -135,6 +136,11 @@ export class EventDetailsComponent implements OnInit {
     });
     console.log(this.form.value);
   }
+  selectInstituteAddress(address) {
+    this.form.patchValue({
+      generalData: { institutionAddress: address.name }
+    });
+  }
 
   eligibilitySelected(e: MatButtonToggleChange) {
     this.form.patchValue({
@@ -167,5 +173,4 @@ export class EventDetailsComponent implements OnInit {
     });
     console.log(this.form.value);
   }
-
 }

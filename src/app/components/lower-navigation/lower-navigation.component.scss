@@ -1,14 +1,38 @@
 .navigation-line {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  .on-button {
-    color: #fff;
+  .go-to-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    width: 254px;
+    .data-line {
+      line-height: 24px;
+      align-self: flex-end;
+      width: 90%;
+      color: #fff;
+      text-align: right;
+      font-size: large;
+    }
+    mat-icon {
+      margin-top: -5px;
+      color: #ffffff;
+    }
   }
-  &:hover {
+  .click-back {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 54px;
+  }
+  mat-icon {
+    margin-top: 15px;
+  }
+    &:hover {
     cursor: pointer;
-    color: #fff;
   }
 }

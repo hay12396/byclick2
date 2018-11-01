@@ -165,3 +165,22 @@
     }
   }
 }
+.go-to-page {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  width: 254px;
+  .data-line {
+    line-height: 24px;
+    align-self: flex-end;
+    width: 90%;
+    color: #fff;
+    text-align: right;
+  }
+  mat-icon {
+    margin-top: -5px;
+    color: #ffffff;
+  }
+}

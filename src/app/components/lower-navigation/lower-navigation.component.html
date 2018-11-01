@@ -1,9 +1,10 @@
   <div class="inner-row">
     <div class="navigation-line">
-      <button mat-button
-              class="go-to-page " (click)="nextPage()">
-        <mat-icon class="on-button">arrow_back_ios</mat-icon>
-        {{buttonData}}
+      <button mat-button class="go-to-page " (click)="nextPage()">
+        <mat-icon>arrow_back_ios</mat-icon>
+        <span class="data-line">
+          {{buttonData}}
+        </span>
       </button>
       <div class="click-back" dir="rtl" (click)="prevPage()">
         <mat-icon class="mat-icon-rtl-mirror">arrow_back_ios</mat-icon>

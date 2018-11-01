@@ -10,5 +10,15 @@
 }
 
 .uploadSelect {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: auto;
+  align-items: baseline;
   font-size: 18px;
+  height: 30px;
+  margin-right: 0!important;
+  &:hover {
+    cursor: pointer;
+  }
 }

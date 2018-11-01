@@ -8,20 +8,23 @@
         </div>
       </div>
       <div class="row" dir="rtl">
-        <div class=" inner-row data-disclaimer">
-          <div class="data-disclaimer_headline">
-            <p> פרטי המבוטח</p>
+        <div class=" inner-row ">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_headline">
+              <p> פרטי המבוטח</p>
+            </div>
+            <div class="data-disclaimer_line">
+              <p>
+                חשוב לדעת, כל השאלות מתייחסות למבוטח. זה שעבורו מוגשת תביעת הסיעוד.
+              </p>
+            </div>
+            <div class="data-disclaimer_warning">
+              <p>
+                <mat-icon>info</mat-icon>&nbsp; כל השדות בבקשת התביעה הינם שדות חובה.
+              </p>
+            </div>
           </div>
-          <div class="data-disclaimer_line">
-            <p>
-              חשוב לדעת, כל השאלות מתייחסות למבוטח. זה שעבורו מוגשת תביעת הסיעוד.
-            </p>
-          </div>
-          <div class="data-disclaimer_warning">
-            <p>
-              <mat-icon>info</mat-icon>&nbsp; כל השדות בבקשת התביעה הינם שדות חובה.
-            </p>
-          </div>
+
         </div>
       </div>
       <div class="row" dir="rtl">
@@ -114,16 +117,19 @@
         </div>
       </div>
       <div *ngIf="contactData" class="row" dir="rtl">
-        <div class=" inner-row data-disclaimer">
-          <div class="data-disclaimer_headline__second">
-            <p> פרטי איש קשר</p>
+        <div class=" inner-row">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_headline__second">
+              <p> פרטי איש קשר</p>
+            </div>
+            <div class="data-disclaimer_line">
+              <p>מידע בנוגע לאיש הקשר</p>
+            </div>
+            <div class="data-disclaimer_line">
+              <p>איש קשר לתביעה</p>
+            </div>
           </div>
-          <div class="data-disclaimer_line">
-            <p>מידע בנוגע לאיש הקשר</p>
-          </div>
-          <div class="data-disclaimer_line">
-            <p>איש קשר לתביעה</p>
-          </div>
+
         </div>
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
@@ -233,9 +239,11 @@
         </div>
       </div>
       <div *ngIf="contactData" class="row" dir="rtl">
-        <div class=" inner-row data-disclaimer">
-          <div class="data-disclaimer_line">
-            <p> קרבה</p>
+        <div class=" inner-row ">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_line">
+              <p> קרבה</p>
+            </div>
           </div>
         </div>
         <div class="inner-row">
@@ -293,15 +301,17 @@
         </div>
       </div>
       <div *ngIf="contactData" class="row" dir="rtl">
-        <div class=" inner-row data-disclaimer">
-          <div class="data-disclaimer_line">
-            <p>דסקליימר של המבוטח שהוא מאשר שזה איש הקשר מטעמו</p>
-          </div>
-          <div class="data-disclaimer_headline__second">
-            <p>פרטי ההתקשרות</p>
-          </div>
-          <div class="data-disclaimer_line">
-            <p>התכתובות בתביעה יהיו לאיש הקשר!</p>
+        <div class=" inner-row ">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_line">
+              <p>דסקליימר של המבוטח שהוא מאשר שזה איש הקשר מטעמו</p>
+            </div>
+            <div class="data-disclaimer_headline__second">
+              <p>פרטי ההתקשרות</p>
+            </div>
+            <div class="data-disclaimer_line">
+              <p>התכתובות בתביעה יהיו לאיש הקשר!</p>
+            </div>
           </div>
         </div>
         <div class="inner-row">
@@ -340,7 +350,6 @@
                       {{ city.name }}
                     </mat-option>
                   </mat-select>
-                  <input type="text">
                 </mat-form-field>
                 <mat-form-field>
                   <mat-label>רחוב</mat-label>
