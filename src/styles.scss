@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "./css-parts/_vars";
 @import "./css-parts/_fonts-decleration";
 
@@ -11,17 +11,18 @@ html {
 body {
   background-color: $general-background-color;
   height: 100%;
-  overflow-y: scroll;
   font-size: 16px;
 }
-
+.routerClass {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 * {
   font-family: 'erica-regular', sans-serif;
 }
 
-router-outlet {
-  margin: 0!important;
-}
 .nextButton {
   border-radius: 20px !important;
   width: 152px;
@@ -35,6 +36,7 @@ router-outlet {
   display: flex;
   flex-direction: column;
   flex: 1;
+  order: 1;
   justify-content: flex-start;
   align-items: center;
   position: absolute;
@@ -52,7 +54,7 @@ router-outlet {
       justify-content: flex-start;
       align-items: center;
       width: 43.125%; //39.0625%;
-      height: 2500px;
+      height: auto;
     }
   }
 }

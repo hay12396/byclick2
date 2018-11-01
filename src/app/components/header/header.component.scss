@@ -7,17 +7,17 @@
   align-items: center;
   width: 100vw;
   height: $header-height;
-  margin-right: 36px;
+  margin-right: 1.875%;
   background-color: $general-background-color;
   overflow: hidden;
-}
-.header {
-  display: flex;
-  flex-direction: row;
-  margin-right: 36px ;
-  width: 320px;
-  img {
-    width: 100%;
-    max-width: 100%;
+  .header-logo {
+    display: flex;
+    flex-direction: row;
+    width: 366px;
+    img {
+      width: 100%x;
+      max-width: 100%;
+    }
   }
 }
+

@@ -1,47 +1,51 @@
-<div id="open-container" class="container" fxLayout.lt-lg="column"
-     ngClass.lt-lg="container-lt-lg">
-  <div class="left-part" fxFlexOrder.lt-lg="2" fxFlex.lt-lg="100%">
-    <div class="left-part_main" ngClass.lt-lg="left-part-lt-lg">
-      <img src="../../../assets/images/family.png" alt="">
-    </div>
-  </div>
-  <div class="right-part">
-    <div class="right-container" fxFlexAlign="center center" ngClass.xs="right-container-xs">
-      <div class="logo">
-        <img src="../../../assets/images/maccabi_open_logo.png" alt="">
+<div class="start-container">
+  <div id="open-container">
+    <div class="container" fxLayout.lt-lg="column"
+         ngClass.lt-lg="container-lt-lg">
+      <div class="left-part" fxFlexOrder.lt-lg="2" fxFlex.lt-lg="100%">
+        <div class="left-part_main" ngClass.lt-lg="left-part-lt-lg">
+          <img src="../../../assets/images/family.png" alt="">
+        </div>
       </div>
-      <div class="headline_1">
-        הגשת תביעה סיעודית
-      </div>
-      <div class="disclaimer">
-        טקסט קצר בנוגע לפתיחת תביעה
-      </div>
-      <div class="confidentiality">
-        <div class="confidentiality_left">
-          <div class="confidentiality_left__description">
-            <div class="confidentiality_left__header">
-              טופס ויתור על סודיות
+      <div class="right-part">
+        <div class="right-container" fxFlexAlign="center center" ngClass.xs="right-container-xs">
+          <div class="logo">
+            <img src="../../../assets/images/maccabi_open_logo.png" alt="">
+          </div>
+          <div class="headline_1">
+            הגשת תביעה סיעודית
+          </div>
+          <div class="disclaimer">
+            טקסט קצר בנוגע לפתיחת תביעה
+          </div>
+          <div class="confidentiality">
+            <div class="confidentiality_left">
+              <div class="confidentiality_left__description">
+                <div class="confidentiality_left__header">
+                  טופס ויתור על סודיות
+                </div>
+                הסבר קצר על חשיבות הטופס בתהליך בקשת התביעה
+              </div>
+              <button mat-button
+                      (click)="downloadConfidentialityForm()"
+                      class="confidentiality_left__download-form">
+                <mat-icon>arrow_downward</mat-icon>
+                הורד טופס
+              </button>
             </div>
-            הסבר קצר על חשיבות הטופס בתהליך בקשת התביעה
+            <div class="confidentiality_right">
+              <img src="../../../assets/images/doc_icon.png" alt="">
+            </div>
           </div>
           <button mat-button
-            (click)="downloadConfidentialityForm()"
-            class="confidentiality_left__download-form">
-            <mat-icon>arrow_downward</mat-icon>
-            הורד טופס
+                  class="start-the-form" (click)="startTheForm()">
+            <mat-icon>arrow_back</mat-icon>
+            הגש בקשה
           </button>
         </div>
-        <div class="confidentiality_right">
-          <img src="../../../assets/images/doc_icon.png" alt="">
-        </div>
       </div>
-      <button mat-button class="go-to-page " (click)="startTheForm()">
-        <mat-icon>arrow_back</mat-icon>
-        <span class="data-line">
-          הגש בקשה
-        </span>
-      </button>
     </div>
+    <app-footer></app-footer>
   </div>
 </div>
 

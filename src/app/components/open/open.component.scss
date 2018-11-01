@@ -3,17 +3,26 @@
   height: auto!important;
 }
 .left-part-lt-lg {
+  flex: 50%;
   justify-content: flex-start!important;
+}
+
+.start-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
 }
 .container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  position: absolute;
+  position: relative;
   top: 0!important;
   width:100vw;
-  height: 86.2963vh; //100vh;
+  height: calc(100vh - 140px);
   overflow-y: scroll;
   .left-part {
     display: flex;
