@@ -13,11 +13,20 @@
             <div class="data-disclaimer_headline">
               <p>סיכום פרטי הבקשה</p>
             </div>
+            <div class="data-disclaimer_line">
+              <p>חשוב לוודא שכל הפרטים נכונים</p>
+            </div>
           </div>
         </div>
       </div>
+      <div class="row" >
+        <div class="inner-row">
+          <app-summary-expansion></app-summary-expansion>
+        </div>
+      </div>
       <app-lower-navigation class="row"
-          goToPage="oen" getBack="doc-uploads" buttonData="לפרטי האירוע"
+          buttonData="לפרטי האירוע"
+          (handleGoTo)="handleGoTo($event)"
       >
       </app-lower-navigation>
     </div>

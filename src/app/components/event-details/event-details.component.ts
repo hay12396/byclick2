@@ -14,6 +14,9 @@ import {MatButtonToggleChange} from '@angular/material/typings/button-toggle';
 })
 
 export class EventDetailsComponent implements OnInit {
+  section  = 'event-details';
+  goToPage = 'doc-uploads';
+  getBack  = 'personal-data';
   isIllnessChecked;
   isAccidentChecked;
   isAnotherPolicy;
@@ -50,16 +53,12 @@ export class EventDetailsComponent implements OnInit {
       cause: ['', Validators.required],
       causeDetails: ['', Validators.required],
       anotherPolicy: ['', Validators.required],
-      insuranceCompanyName: ['', Validators.required]
-    }),
-    clientResidence: this.fb.group({
+      insuranceCompanyName: ['', Validators.required],
       clientResidenceType: ['', Validators.required],
       clientCity: ['', Validators.required],
       clientStreet: ['', Validators.required],
       clientHouseNumber: ['', Validators.required],
-      clientZipCode: ['', Validators.required]
-    }),
-    generalData: this.fb.group({
+      clientZipCode: ['', Validators.required],
       institutionAddress: ['', Validators.required],
       institutionType: ['', Validators.required],
       institutionName: ['', Validators.required],
@@ -75,7 +74,32 @@ export class EventDetailsComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.checkIfData();
+
+  }
+  checkIfData() {
+    let data: any;
+    this.form.reset();
+    data = JSON.parse(sessionStorage.getItem(`${this.section}`));
+    if (!data) {
+      return;
+    }
+    this.form.patchValue({
+      eventData: data.eventData });
+    this.isIllnessChecked = data.eventData.cause === 'illness'
+    this.isAccidentChecked = data.eventData.cause === 'accident';
+    this.isAnotherPolicy = data.eventData.anotherPolicy === 'yes';
+    this.isNotAnotherPolicy = data.eventData.anotherPolicy === 'no';
+    this.isClientHome = data.eventData.clientResidenceType === 'home';
+    this.isClientInstitute = data.eventData.clientResidenceType === 'institute';
+    this.isOtherTypeResidence = data.eventData.clientResidenceType === 'other';
+    this.isForeignWorkerEmployment = data.eventData.foreignWorkerEmployment === 'yes';
+    this.isNotForeignWorkerEmployment = data.eventData.foreignWorkerEmployment === 'no';
+    this.isEligibilityFromAnotherParty = data.eventData.eligibilityFromAnotherParty === 'yes';
+    this.isNotEligibilityFromAnotherParty = data.eventData.eligibilityFromAnotherParty === 'no';
+
+}
 
   saveEvent() {}
 
@@ -85,23 +109,14 @@ export class EventDetailsComponent implements OnInit {
         cause: e.value
       }
     });
-    if ( e.value === 'accident' ) {
-      this.isIllnessChecked = false;
-    } else {
-      this.isAccidentChecked = false;
-    }
+    this.isIllnessChecked = e.value === 'accident';
+    this.isAccidentChecked = e.value === 'accident';
   }
 
   requiredForm(name: string) {
     return (
       this.form.get(`eventData.${name}`).hasError('required') &&
       this.form.get(`eventData.${name}`).dirty
-    );
-  }
-  requiredGeneral(name: string) {
-    return (
-      this.form.get(`generalData.${name}`).hasError('required') &&
-      this.form.get(`generalData.${name}`).dirty
     );
   }
 
@@ -111,66 +126,70 @@ export class EventDetailsComponent implements OnInit {
         anotherPolicy: e.value
       }
     });
-    if ( e.value === 'yes' ) {
-      this.isNotAnotherPolicy = false;
-    } else {
-      this.isAnotherPolicy = false;
-    }
+    this.isAnotherPolicy = e.value === 'yes';
+    this.isNotAnotherPolicy = e.value === 'no';
   }
 
   selectedResidence(e: MatButtonToggleChange) {
     this.form.patchValue({
-      clientResidence: {
+      eventData: {
         clientResidenceType: e.value
       }
     });
-    if ( e.value === 'yes' ) {
-      this.isNotAnotherPolicy = false;
-    } else {
-      this.isAnotherPolicy = false;
-    }
+    this.isClientHome = e.value === 'home';
+    this.isClientInstitute = e.value === 'institute';
+    this.isOtherTypeResidence = e.value === 'other';
   }
   selectInstitute(institute: { name: string }) {
     this.form.patchValue({
-      generalData: { institutionType: institute.name }
+      eventData: { institutionType: institute.name }
     });
     console.log(this.form.value);
   }
   selectInstituteAddress(address) {
     this.form.patchValue({
-      generalData: { institutionAddress: address.name }
+      eventData: { institutionAddress: address.name }
     });
   }
-
   eligibilitySelected(e: MatButtonToggleChange) {
     this.form.patchValue({
-      generalData: {
+      eventData: {
         eligibilityFromAnotherParty: e.value
       }
     });
-    if ( e.value === 'yes' ) {
-      this.isNotEligibilityFromAnotherParty = false;
-    } else {
-      this.isEligibilityFromAnotherParty = false;
-    }
+    this.isEligibilityFromAnotherParty = e.value === 'yes';
+    this.isNotEligibilityFromAnotherParty = e.value === 'no';
   }
 
   foreignWorkerSelect(e: MatButtonToggleChange) {
     this.form.patchValue({
-      generalData: {
+      eventData: {
         foreignWorkerEmployment: e.value
       }
     });
-    if ( e.value === 'yes' ) {
-      this.isNotForeignWorkerEmployment = false;
-    } else {
-      this.isForeignWorkerEmployment = false;
-    }
+    this.isForeignWorkerEmployment = e.value === 'yes';
+    this.isNotForeignWorkerEmployment = e.value === 'no';
   }
   selectEntitlement(entitlement: { name: string }) {
     this.form.patchValue({
-      generalData: { entitlementFactors: entitlement.name }
+      eventData: { entitlementFactors: entitlement.name }
     });
     console.log(this.form.value);
+  }
+
+  handleGoTo(e) {
+    if (e === 'forward'){
+      this.form.get('eventData').statusChanges.subscribe(st => {
+        const status = st === 'VALID'; // && !this.contactData ;
+      });
+      sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      this.router.navigate([`/${this.goToPage}`]);
+    } else {
+      this.form.get('eventData').statusChanges.subscribe(st => {
+        const status = st === 'VALID'; // && !this.contactData ;
+      });
+      sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      this.router.navigate([`/${this.getBack}`]);
+    }
   }
 }

@@ -20,7 +20,8 @@ import { PersonalDataComponent } from './components/personal-data/personal-data.
 import {MessengerService} from './services/messenger.service';
 import { DataService } from './services/data-service.service';
 import {EventDetailsComponent} from './components/event-details/event-details.component';
-import {SummaryComponent} from "./components/summary/summary.component";
+import {SummaryComponent} from './components/summary/summary.component';
+import {SummaryExpansionComponent} from './components/summary-expansion/summary-expansion.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {SummaryComponent} from "./components/summary/summary.component";
     FooterComponent,
     HeaderComponent,
     EventDetailsComponent,
-    SummaryComponent
+    SummaryComponent,
+    SummaryExpansionComponent
   ],
   imports: [
     BrowserModule,

@@ -49,8 +49,34 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="1">
+          <list size="5">
             <item index="0" class="java.lang.String" itemvalue="mat-raised" />
+            <item index="1" class="java.lang.String" itemvalue="section" />
+            <item index="2" class="java.lang.String" itemvalue="sectionsave" />
+            <item index="3" class="java.lang.String" itemvalue="sectionname" />
+            <item index="4" class="java.lang.String" itemvalue="saveenable" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="13">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="mat-expesin-pannel" />
+            <item index="7" class="java.lang.String" itemvalue="mat-expension-pannel-header" />
+            <item index="8" class="java.lang.String" itemvalue="mat-pannel-description" />
+            <item index="9" class="java.lang.String" itemvalue="mat-pannel-title" />
+            <item index="10" class="java.lang.String" itemvalue="mat-expansin-pannel" />
+            <item index="11" class="java.lang.String" itemvalue="mat-expansion-pannel-header" />
+            <item index="12" class="java.lang.String" itemvalue="mat-expansion-pannel" />
           </list>
         </value>
       </option>

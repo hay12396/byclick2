@@ -84,11 +84,12 @@ body {
 
 }
 
+
 .inner-row {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  //align-items: center;
   width: 65.575963%!important;
   //border: 0.5px solid blue;
   p {
@@ -339,4 +340,11 @@ body {
   .data-line {
     font-size: 0.8571428571428571rem;
   }
+}
+
+.mirror-field {
+  width: 100%;
+  color: gray;
+  border-bottom: 1px solid dimgray;
+  margin-bottom: 40px;
 }

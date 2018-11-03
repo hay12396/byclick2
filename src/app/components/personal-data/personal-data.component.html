@@ -29,8 +29,8 @@
       </div>
       <div class="row" dir="rtl">
         <div class="inner-row">
-          <form [formGroup]="form" (ngSubmit)="saveClient()">
-            <div formGroupName="basicInfo" class="basic-info required">
+          <form [formGroup]="form">
+            <div formGroupName="basicInfo"  class="basic-info required">
               <mat-form-field>
                 <mat-label>שם פרטי</mat-label>
                 <input
@@ -43,7 +43,7 @@
                   formControlName="firstName">
                 <mat-error
                   class="error"
-                  *ngIf="requiredForm('firstName')">
+                  *ngIf="requiredForm('basicInfo','firstName')">
                   יש לעדכן שם פרטי
                 </mat-error>
               </mat-form-field>
@@ -59,7 +59,7 @@
                   formControlName="lastName">
                 <mat-error>
                   class="error"
-                  *ngIf="*ngIf="requiredForm('lastName')">
+                  *ngIf="*ngIf="requiredForm('basicInfo','lastName')">
                   יש לעדכן שם משפחה
                 </mat-error>
               </mat-form-field>
@@ -82,7 +82,7 @@
                   {{idNumber.value?.length || 0 }} / 9
                 </mat-hint>
                 <mat-error>
-                  *ngIf="requiredForm('idNumber')">
+                  *ngIf="requiredForm('basicInfo','idNumber')">
                   יש לעדכן תעודת זהות כולל ספרת ביקורת
                 </mat-error>
               </mat-form-field>
@@ -101,11 +101,11 @@
                 <input
                   #birthday
                   matInput
-                  required
                   (dateChange)="endDateChange($event)"
                   [matDatepicker]="picker"
                   placeholder="תאריך לידה"
-                  formControlName="birthday">
+                  formControlName="birthday"
+                >
                 <mat-hint>
                   DD/MM/YYYY
                 </mat-hint>
@@ -129,7 +129,6 @@
               <p>איש קשר לתביעה</p>
             </div>
           </div>
-
         </div>
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
@@ -156,7 +155,7 @@
           <p>אם המבוטח קטין, נדרש איש קשר</p>
         </div>
         <div class="inner-row">
-          <form [formGroup]="formContact" (ngSubmit)="saveClient()" class="client-data">
+          <form [formGroup]="form" (ngSubmit)="saveClient()" class="client-data">
             <div formGroupName="contactInfo" class="basic-info required">
               <mat-form-field>
                 <mat-label>שם פרטי</mat-label>
@@ -170,7 +169,7 @@
                   formControlName="contactFirstName">
                 <mat-error
                   class="error"
-                  *ngIf="requiredFormContact('contactFirstName')">
+                  *ngIf="requiredForm('contactInfo','contactFirstName')">
                   יש לעדכן שם פרטי
                 </mat-error>
               </mat-form-field>
@@ -186,7 +185,7 @@
                   formControlName="contactLastName">
                 <mat-error
                   class="error"
-                  *ngIf="requiredFormContact('contactLastName')">
+                  *ngIf="requiredForm('contactInfo','contactLastName')">
                   יש לעדכן שם משפחה
                 </mat-error>
               </mat-form-field>
@@ -196,7 +195,7 @@
                   #contactIdNumber
                   matInput
                   required
-                  type="number"
+                  type="text"
                   maxlength="9"
                   minlength="9"
                   (focus)="onFocus($event)"
@@ -208,7 +207,7 @@
                 <mat-hint align="end">
                   {{idNumber.value?.length || 0 }} / 9
                 </mat-hint>
-                <mat-error *ngIf="requiredFormContact('contactIdNumber')">
+                <mat-error *ngIf="requiredForm('contactInfo','contactIdNumber')">
                   יש לעדכן תעודת זהות כולל ספרת ביקורת
                 </mat-error>
               </mat-form-field>
@@ -218,7 +217,7 @@
                   #contactCellPhone
                   matInput
                   required
-                  type="number"
+                  type="tel"
                   maxlength="10"
                   minlength="10"
                   (focus)="onFocus($event)"
@@ -230,7 +229,7 @@
                 <mat-hint align="end">
                   {{contactCellPhone.value?.length || 0 }} / 10
                 </mat-hint>
-                <mat-error *ngIf="requiredFormContact('contactCellPhone')">
+                <mat-error *ngIf="requiredForm('contactInfo','contactCellPhone')">
                   יש לעדכן מספר סלולארי מלא בן 10 ספרות
                 </mat-error>
               </mat-form-field>
@@ -279,7 +278,7 @@
           </mat-button-toggle-group>
         </div>
         <div class="inner-row">
-          <form [formGroup]="formContact" (ngSubmit)="saveClient()" class="client-data">
+          <form [formGroup]="form" (ngSubmit)="saveClient()" class="client-data">
             <div formGroupName="contactInfo" class="basic-info required">
               <mat-form-field>
                 <mat-label>סוג קרבה</mat-label>
@@ -292,7 +291,7 @@
                   placeholder="סוג קרבה"
                   formControlName="contactRelationType"
                 >
-                <mat-error *ngIf="requiredFormContact('contactRelationType')">
+                <mat-error *ngIf="requiredForm('contactInfo','contactRelationType')">
                   יש לעדכן את סוג הקרבה
                 </mat-error>
               </mat-form-field>
@@ -313,9 +312,12 @@
               <p>התכתובות בתביעה יהיו לאיש הקשר!</p>
             </div>
           </div>
+
         </div>
         <div class="inner-row">
-          <form [formGroup]="formContact" (ngSubmit)="saveClient()" class="client-data">
+          <span class="mirror-field">{{form.get('contactInfo.contactFirstName').value}}</span>
+          <span class="mirror-field">{{form.get('contactInfo.contactLastName').value}}</span>
+          <form [formGroup]="form" (ngSubmit)="saveClient()" class="client-data">
             <div formGroupName="contactInfo" class="basic-info required">
               <mat-form-field>
                 <mat-label>דוא"ל</mat-label>
@@ -331,18 +333,19 @@
                 <mat-hint>
                   דוגמא: fnx@gmail.com
                 </mat-hint>
-                <mat-error *ngIf="requiredFormContact('contactEmail')">
+                <mat-error *ngIf="requiredForm('contactInfo','contactEmail')">
                   יש לעדכן דואר אלקטרוני
                 </mat-error>
               </mat-form-field>
               <div class="setCheckBox">
-                <mat-checkbox (change)="onChange($event)" class="checkbox-mat">
+                <mat-checkbox (change)="onChangeMail($event)" class="checkbox-mat"
+                  [checked]="postOffice" >
                   קבלת תכתובות רק באמצעות הדואר
                 </mat-checkbox>
               </div>
               <div *ngIf="postOffice">
                 <mat-form-field>
-                  <mat-label>פרטי הכתובת בה שוהה המבוטח</mat-label>
+                  <mat-label>עיר</mat-label>
                   <mat-select #contactCity placeholder="עיר">
                     <mat-option *ngFor="let city of cities"
                                 [value]="city"
@@ -374,7 +377,7 @@
                     placeholder="מספר בית"
                     formControlName="contactHouseNumber"
                   >
-                  <mat-error *ngIf="requiredFormContact('contactHouseNumber')">
+                  <mat-error *ngIf="requiredForm('contactInfo','contactHouseNumber')">
                     יש לעדכן את מספר הבית
                   </mat-error>
                 </mat-form-field>
@@ -391,7 +394,7 @@
                         placeholder="מיקוד"
                         formControlName="contactZipCode"
                       >
-                      <mat-error *ngIf="requiredFormContact('contactZipCode')">
+                      <mat-error *ngIf="requiredForm('contactInfo','contactZipCode')">
                         יש לעדכן את המיקוד
                       </mat-error>
                     </mat-form-field>
@@ -404,7 +407,8 @@
       </div>
       <div class="row">
         <app-lower-navigation class="row"
-          goToPage="event-details" getBack="open" buttonData="לפרטי האירוע"
+           buttonData="לפרטי האירוע"
+          (handleGoTo)="handleGoTo($event)"
         >
         </app-lower-navigation>
       </div>

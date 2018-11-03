@@ -1,5 +1,11 @@
-import {Component, Input} from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lower-navigation',
@@ -8,18 +14,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class LowerNavigationComponent {
-  @Input() goToPage: string;
-  @Input() getBack: string;
   @Input() buttonData: string;
+  @Output() handleGoTo:  EventEmitter<any> = new EventEmitter<any>();
+  @Output() handleBackward:  EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private router: Router) { }
 
   nextPage() {
-    this.router.navigate([`/${this.goToPage}`]);
+    this.handleGoTo.emit('forward');
   }
 
   prevPage() {
-    this.router.navigate([`/${this.getBack}`]);
+    this.handleGoTo.emit('backward');
   }
 }
 

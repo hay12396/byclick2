@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-summary',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
+  section  = 'summary';
+  goToPage = 'open';
+  getBack  = 'doc-uploads';
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  handleGoTo(e) {
+    if (e === 'forward'){
+      this.router.navigate([`/${this.goToPage}`]);
+    } else {
+      this.router.navigate([`/${this.getBack}`]);
+    }
   }
 
 }

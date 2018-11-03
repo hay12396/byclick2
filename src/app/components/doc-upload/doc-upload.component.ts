@@ -11,6 +11,10 @@ import {HttpClient} from "@angular/common/http";
 })
 
 export class DocUploadComponent implements OnInit, AfterViewInit {
+  section  = 'doc-uploads';
+  goToPage = 'summary';
+  getBack  = 'event-details';
+
   selectedFile: File = null;
   uploadedName: string;
   fileContainer: string | ArrayBuffer;
@@ -67,5 +71,21 @@ export class DocUploadComponent implements OnInit, AfterViewInit {
         this.uploadSuccess = true;
       })
     */
+  }
+
+  handleGoTo(e) {
+    if (e === 'forward'){
+      this.form.get('documents').statusChanges.subscribe(st => {
+        const status = st === 'VALID'; // && !this.contactData ;
+      });
+      // sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      this.router.navigate([`/${this.goToPage}`]);
+    } else {
+      this.form.get('documents').statusChanges.subscribe(st => {
+        const status = st === 'VALID'; // && !this.contactData ;
+      });
+      // sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      this.router.navigate([`/${this.getBack}`]);
+    }
   }
 }

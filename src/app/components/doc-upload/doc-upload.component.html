@@ -35,7 +35,8 @@
                 (change)="fileUpload($event.target.files[0])" #fileToUpload>
               <div class="uploadSelect"
                       (click)="fileToUpload.click()">
-                <mat-icon>attach_file</mat-icon>
+                <mat-icon class="material-icons">attach_file</mat-icon>
+                <!--<i class="material-icons" *ngIf="!expanded"> keyboard_arrow_down</i>-->
                 צרף קובץ
               </div>
             </div>
@@ -46,7 +47,8 @@
         </div>
       </div>
       <app-lower-navigation class="row"
-        goToPage="summary" getBack="event-details" buttonData="לסיכום פרטי הבקשה"
+        buttonData="לסיכום פרטי הבקשה"
+       (handleGoTo)="handleGoTo($event)"
       >
       </app-lower-navigation>
     </div>

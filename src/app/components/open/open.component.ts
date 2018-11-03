@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as jsPDF  from 'jspdf';
 
 @Component({
@@ -9,9 +9,17 @@ import * as jsPDF  from 'jspdf';
 })
 export class OpenComponent implements OnInit {
 
-  constructor( private router: Router){ }
+  constructor( private router: Router, private route: ActivatedRoute){ }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params);
+        if (params.section) {
+          console.log(params.section);
+        }
+      });
+  }
 
 
   startTheForm(): void {

@@ -25,7 +25,8 @@
                   #eventDate
                   matInput
                   required
-                  [matDatepicker]="picker" placeholder="תאריך האירוע"
+                  [matDatepicker]="picker"
+                  placeholder="תאריך האירוע"
                   formControlName="eventDate">
                 <mat-hint>
                   DD/MM/YYYY
@@ -189,7 +190,7 @@
 
         <div class="inner-row">
           <form [formGroup]="form" (ngSubmit)="saveEvent()" class="event-data">
-            <div formGroupName="generalData" class="required">
+            <div formGroupName="eventData" class="required">
               <mat-form-field>
                 <mat-label>פרטי כתובת בה שוהה המבוטח</mat-label>
                 <mat-select #institute placeholder="סוג המוסד">
@@ -224,7 +225,7 @@
                   formControlName="institutionName">
                 <mat-error
                   class="error"
-                  *ngIf="requiredGeneral('institutionName')">
+                  *ngIf="requiredForm('institutionName')">
                   ייש לעדכן את שם המוסד
                 </mat-error>
               </mat-form-field>
@@ -308,8 +309,9 @@
       </div>
       <div class="row">
         <app-lower-navigation class="row"
-          goToPage="doc-uploads" getBack="personal-data" buttonData="להעלאת מסמכים"
-        >
+          buttonData="להעלאת מסמכים"
+          (handleGoTo)="handleGoTo($event)"
+          >
         </app-lower-navigation>
       </div>
     </div>
