@@ -29,16 +29,20 @@ export class EventDetailsComponent implements OnInit {
   isForeignWorkerEmployment;
   isNotForeignWorkerEmployment;
 
-  addresses = [
-    {name: 'תל אביב'},
-    {name: 'ירושלים'},
-    {name: 'חיפה'},
+  instituteAddress: any;
+  instituteType: any;
+  factorsEntitlement: any;
+
+  addrs = [
+    {name: 'תל אביב השקמה 5'},
+    {name: 'ירושלים גמיללות חסדים 2'},
+    {name: 'חיפה בתי הזיקוק'}
   ];
 
   institutes = [
-    {name: 'המוסד לבטיחות וגהות'},
-    {name: 'המוסד'},
-    {name: 'המוסד לתפקידים מיוחדים'},
+    {name: 'מוסד סיעודי'},
+    {name: 'בית אבות סיעודי'},
+    {name: 'מוסד שיקומי'}
   ];
 
   entitlements = [
@@ -67,6 +71,8 @@ export class EventDetailsComponent implements OnInit {
       entitlementFactors: ['', Validators.required]
     })
   });
+
+
 
   constructor(
     private messenger: MessengerService,
@@ -98,7 +104,9 @@ export class EventDetailsComponent implements OnInit {
     this.isNotForeignWorkerEmployment = data.eventData.foreignWorkerEmployment === 'no';
     this.isEligibilityFromAnotherParty = data.eventData.eligibilityFromAnotherParty === 'yes';
     this.isNotEligibilityFromAnotherParty = data.eventData.eligibilityFromAnotherParty === 'no';
-
+    this.instituteAddress = data.eventData.institutionAddress;
+    this.instituteType = data.eventData.institutionType;
+    this.factorsEntitlement = data.eventData.entitlementFactors;
 }
 
   saveEvent() {}
@@ -146,12 +154,12 @@ export class EventDetailsComponent implements OnInit {
     });
     console.log(this.form.value);
   }
-  selectInstituteAddress(address) {
+  selectInstituteAddress(addr) {
     this.form.patchValue({
-      eventData: { institutionAddress: address.name }
+      eventData: { institutionAddress: addr.name }
     });
   }
-  eligibilitySelected(e: MatButtonToggleChange) {
+  eligibilitySelected(e) {
     this.form.patchValue({
       eventData: {
         eligibilityFromAnotherParty: e.value
@@ -178,17 +186,18 @@ export class EventDetailsComponent implements OnInit {
   }
 
   handleGoTo(e) {
+    const status: any;
     if (e === 'forward'){
       this.form.get('eventData').statusChanges.subscribe(st => {
         const status = st === 'VALID'; // && !this.contactData ;
       });
-      sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      status =sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
       this.router.navigate([`/${this.goToPage}`]);
     } else {
       this.form.get('eventData').statusChanges.subscribe(st => {
         const status = st === 'VALID'; // && !this.contactData ;
       });
-      sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      status = sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
       this.router.navigate([`/${this.getBack}`]);
     }
   }

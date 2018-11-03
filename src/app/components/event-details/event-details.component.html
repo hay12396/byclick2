@@ -192,24 +192,24 @@
           <form [formGroup]="form" (ngSubmit)="saveEvent()" class="event-data">
             <div formGroupName="eventData" class="required">
               <mat-form-field>
-                <mat-label>פרטי כתובת בה שוהה המבוטח</mat-label>
-                <mat-select #institute placeholder="סוג המוסד">
-                  <mat-option *ngFor="let institute of institutes"
-                              [value]="institute"
-                              (click)="selectInstitute(institute)">
-                    {{ institute.name }}
+                <mat-label>כתובת בה שוהה המבוטח</mat-label>
+                <mat-select placeholder="כתובת בה שוהה המבוטח" [(value)]="instituteAddress">
+                  <mat-option *ngFor="let addr of addrs"
+                              [value]="instituteAddress"
+                              (click)="selectInstituteAddress(addr)">
+                    {{ addr.name }}
                   </mat-option>
                 </mat-select>
                 <mat-hint>
-                  רחוב ומספר, עיר, מיקוד
+                רחוב ומספר, עיר, מיקוד
                 </mat-hint>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>סוג המוסד</mat-label>
-                <mat-select #institute placeholder="סוג המוסד">
-                  <mat-option *ngFor="let address of addresses"
-                              [value]="address"
-                              (click)="selectInstituteAddress(address)">
+                <mat-select placeholder="סוג המוסד" [(value)]="instituteType">
+                  <mat-option *ngFor="let institute of institutes"
+                              [value]="instituteType"
+                              (click)="selectInstitute(institute)">
                     {{ institute.name }}
                   </mat-option>
                 </mat-select>
@@ -279,7 +279,7 @@
               class="client-button-radio"
               [checked]="isEligibilityFromAnotherParty"
               (change)="eligibilitySelected($event)"
-              value="illness"
+              value="yes"
             >
               <div class="button-header">
                 כן
@@ -297,9 +297,9 @@
           </mat-button-toggle-group>
           <mat-form-field>
             <mat-label>גורמי הזכאות</mat-label>
-            <mat-select #entitlement placeholder="גורמי הזכאות">
+            <mat-select #entitlement [(value)]="factorsEntitlement" placeholder="גורמי הזכאות">
               <mat-option *ngFor= "let entitlement of entitlements"
-                          [value]="entitlement"
+                          [value]="factorsEntitlement"
                           (click)="selectEntitlement(entitlement)">
                 {{ entitlement.name }}
               </mat-option>

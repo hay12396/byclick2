@@ -3,7 +3,6 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  AfterViewInit,
   Renderer2
 } from '@angular/core';
 
@@ -18,9 +17,11 @@ import {MatCheckboxChange} from '@angular/material';
   templateUrl: './personal-data.component.html',
   styleUrls: ['./personal-data.component.scss']
 })
-export class PersonalDataComponent implements OnInit, AfterViewInit {
+export class PersonalDataComponent implements OnInit {
 
   @ViewChild('birthday') birthday: ElementRef;
+  @ViewChild('contactCity') contactCity: ElementRef;
+  @ViewChild('contactStreet') contactStreet: ElementRef;
 
   section  = 'personal-data';
   goToPage = 'event-details';
@@ -75,6 +76,8 @@ export class PersonalDataComponent implements OnInit, AfterViewInit {
     {name: 'ויצמן'},
     {name: 'דיזנגוף'}
   ];
+  contactCitySelected: any;
+  contactStreetSelected: any;
 
   constructor (
     private messenger: MessengerService,
@@ -90,12 +93,6 @@ export class PersonalDataComponent implements OnInit, AfterViewInit {
     this.contactDate.setFullYear(this.contactDate.getFullYear() - 18);
     this.contactFirstName = this.form.get('contactInfo.contactFirstName').value || 'No Name Yet';
     this.checkIfData();
-  }
-
-  ngAfterViewInit(){
-    this.form.get('basicInfo').statusChanges.subscribe(st => {
-      this.enabled = st === 'VALID'; // && !this.contactData ;
-    });
   }
 
   onFocus(e: FocusEvent) {
@@ -136,15 +133,14 @@ export class PersonalDataComponent implements OnInit, AfterViewInit {
     this.isSpouseChecked = data.contactInfo.contactRelation === 'spuse';
     this.isChildChecked = data.contactInfo.contactRelation === 'child';
     this.isContactRelatedChecked = data.contactInfo.contactRelation === 'contact';
+    this.contactCitySelected = data.contactInfo.contactCity;
+    this.contactStreetSelected = data.contactInfo.contactStreet;
   }
 
   endDateChange(e) {
     const cDate = this.contactDate.getFullYear() - 18;
     const eDate = e.value.getFullYear();
-    this.contactData = eDate < cDate;
-    // this.form.patchValue({
-    //   basicInfo: { birthday: e.value }
-    // });
+    this.contactData = eDate > cDate;
   }
   requiredForm(controlConfig:string, name: string) {
     return (
@@ -189,11 +185,12 @@ export class PersonalDataComponent implements OnInit, AfterViewInit {
   }
 
   handleGoTo(e) {
+    const status: any;
     if (e === 'forward') {
       this.form.get('basicInfo').statusChanges.subscribe(st => {
         const status = st === 'VALID'; // && !this.contactData ;
       });
-      sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      status = sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
       this.router.navigate([`/${this.goToPage}`]);
     } else {
       this.form.get('basicInfo').statusChanges.subscribe(st => {

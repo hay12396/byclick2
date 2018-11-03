@@ -15,6 +15,7 @@ export class SummaryComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+
   }
 
   handleGoTo(e) {

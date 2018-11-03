@@ -346,23 +346,29 @@
               <div *ngIf="postOffice">
                 <mat-form-field>
                   <mat-label>עיר</mat-label>
-                  <mat-select #contactCity placeholder="עיר">
+                  <mat-select #contactCity placeholder="עיר" [(value)]="contactCitySelected">
                     <mat-option *ngFor="let city of cities"
-                                [value]="city"
+                                [value]="contactCitySelected"
                                 (click)="selectCity(city)">
                       {{ city.name }}
                     </mat-option>
                   </mat-select>
+                  <mat-error *ngIf="requiredForm('contactInfo','contactCity')">
+                    יש לעדכן את העיר
+                  </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                   <mat-label>רחוב</mat-label>
-                  <mat-select #contactStreet placeholder="רחוב">
+                  <mat-select #contactStreet placeholder="רחוב" [(value)]="contactStreetSelected">
                     <mat-option *ngFor="let street of streets"
-                        [value]="street"
+                        [value]="contactStreetSelected"
                         (click)="selectStreet(street)">
                       {{ street.name }}
                     </mat-option>
                   </mat-select>
+                  <mat-error *ngIf="requiredForm('contactInfo','contactStreet')">
+                    יש לעדכן את הרחוב
+                  </mat-error>
                 </mat-form-field>
                 <div class="two-fields">
                   <div class="field-one">
