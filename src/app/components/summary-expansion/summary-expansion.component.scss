@@ -1,0 +1,41 @@
+@import "../../../css-parts/_vars";
+.accord.mat-accordion  {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-self: flex-end;
+  margin: 0 0 50px 0!important;
+  width: 100%!important;
+  border-right: 5px solid $warning-color;
+  .mat-expansion-panel{
+    width: 100%!important;
+  }
+  .mat-content {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse!important;
+  }
+  .mat-expansion-panel-header-description {
+    flex-direction: row-reverse!important;
+    align-items: center;
+    font-size: 24px!important;
+  }
+}
+
+ul {
+  list-style: none;
+  margin-right: -20px;
+  width: 100%;
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    line-height: 24px;
+    width: 100%;
+    span.content {
+      width: 30%;
+      text-align: right;
+    }
+  }
+}
