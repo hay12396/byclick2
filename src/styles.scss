@@ -348,3 +348,31 @@ body {
   border-bottom: 1px solid dimgray;
   margin-bottom: 40px;
 }
+
+.nav-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+  .go-to-summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    width: 254px;
+    .data-line {
+      line-height: 24px;
+      align-self: flex-end;
+      width: 90%;
+      color: #fff;
+      text-align: right;
+      font-size: large;
+    }
+    mat-icon {
+      margin-top: -5px;
+      color: #ffffff;
+    }
+  }
+}

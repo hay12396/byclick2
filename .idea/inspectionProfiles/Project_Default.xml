@@ -18,6 +18,17 @@
     <inspection_tool class="ConstantOnRHSOfComparisonJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ContinueStatementJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ContinueStatementWithLabelJS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="bg-image" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
     <inspection_tool class="CyclomaticComplexityJS" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_limit" value="10" />
     </inspection_tool>
@@ -49,12 +60,14 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="5">
+          <list size="7">
             <item index="0" class="java.lang.String" itemvalue="mat-raised" />
             <item index="1" class="java.lang.String" itemvalue="section" />
             <item index="2" class="java.lang.String" itemvalue="sectionsave" />
             <item index="3" class="java.lang.String" itemvalue="sectionname" />
             <item index="4" class="java.lang.String" itemvalue="saveenable" />
+            <item index="5" class="java.lang.String" itemvalue="source" />
+            <item index="6" class="java.lang.String" itemvalue="formcontrolname" />
           </list>
         </value>
       </option>
@@ -63,7 +76,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="13">
+          <list size="15">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -77,6 +90,8 @@
             <item index="10" class="java.lang.String" itemvalue="mat-expansin-pannel" />
             <item index="11" class="java.lang.String" itemvalue="mat-expansion-pannel-header" />
             <item index="12" class="java.lang.String" itemvalue="mat-expansion-pannel" />
+            <item index="13" class="java.lang.String" itemvalue="checked" />
+            <item index="14" class="java.lang.String" itemvalue="button-checked" />
           </list>
         </value>
       </option>

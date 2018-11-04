@@ -69,7 +69,7 @@
                   #idNumber
                   matInput
                   required
-                  type="number"
+                  type="text"
                   maxlength="9"
                   minlength="9"
                   (focus)="onFocus($event)"
@@ -134,8 +134,10 @@
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
               class="client-button-radio"
+              [ngClass]="{'buttonChecked': isClientChecked}"
               [checked]="isClientChecked"
               (change)="selectedClient($event)"
+              (click)="selectedClient($event)"
               value="client"
             >
               <div class="button-header">
@@ -411,14 +413,28 @@
           </form>
         </div>
       </div>
-      <div class="row">
+      <div *ngIf="!rControl" class="row">
         <app-lower-navigation class="row"
            buttonData="לפרטי האירוע"
           (handleGoTo)="handleGoTo($event)"
         >
         </app-lower-navigation>
       </div>
+      <div *ngIf="rControl" class="row">
+        <div class="inner-row">
+          <div class="nav-line">
+            <button mat-button
+                    class="go-to-page "
+                    (click)="backToSummary()"
+              >
+              <span class="data-line">
+                בחזרה לדף הסיכום
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    <app-footer></app-footer>
     </div>
   </div>
-  <app-footer></app-footer>
 </div>

@@ -5,18 +5,19 @@ import {
   ElementRef,
   Renderer2
 } from '@angular/core';
-
 import { FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MessengerService} from '../../services/messenger.service';
-import {DataService} from '../../services/data-service.service';
-import {MatCheckboxChange} from '@angular/material';
+import { MessengerService } from '../../services/messenger.service';
+import { DataService } from '../../services/data-service.service';
+import { MatCheckboxChange } from '@angular/material';
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-personal-data',
   templateUrl: './personal-data.component.html',
   styleUrls: ['./personal-data.component.scss']
 })
+
 export class PersonalDataComponent implements OnInit {
 
   @ViewChild('birthday') birthday: ElementRef;
@@ -35,7 +36,11 @@ export class PersonalDataComponent implements OnInit {
   isSpouseChecked;
   isChildChecked;
   isContactRelatedChecked;
+  contactCitySelected: any;
+  contactStreetSelected: any;
 
+  rControl = false;
+  routeSub: Subscription;
 
   contactFirstName: string;
 
@@ -76,8 +81,6 @@ export class PersonalDataComponent implements OnInit {
     {name: 'ויצמן'},
     {name: 'דיזנגוף'}
   ];
-  contactCitySelected: any;
-  contactStreetSelected: any;
 
   constructor (
     private messenger: MessengerService,
@@ -85,9 +88,14 @@ export class PersonalDataComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private renderer : Renderer2,
-    private fb: FormBuilder ) { }
+    private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.routeSub = this.route.queryParams.subscribe(params => {
+      if(params.section === 'summary') {
+        this.rControl = true;
+      }
+    });
     this.messenger.setMessage('personal');
     this.contactDate = new Date();
     this.contactDate.setFullYear(this.contactDate.getFullYear() - 18);
@@ -174,6 +182,8 @@ export class PersonalDataComponent implements OnInit {
         clientType: e.value
       }
     });
+    this.isClientChecked = e === 'client';
+    this.isContactChecked = e === 'contact';
   }
 
   selectedRelation(e) {
@@ -185,12 +195,12 @@ export class PersonalDataComponent implements OnInit {
   }
 
   handleGoTo(e) {
-    const status: any;
+
     if (e === 'forward') {
       this.form.get('basicInfo').statusChanges.subscribe(st => {
         const status = st === 'VALID'; // && !this.contactData ;
       });
-      status = sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
       this.router.navigate([`/${this.goToPage}`]);
     } else {
       this.form.get('basicInfo').statusChanges.subscribe(st => {
@@ -201,4 +211,8 @@ export class PersonalDataComponent implements OnInit {
     }
   }
 
+  backToSummary() {
+    sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+    this.router.navigate([`/summary`]);
+  }
 }

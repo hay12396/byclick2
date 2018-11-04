@@ -22,7 +22,10 @@ import { DataService } from './services/data-service.service';
 import {EventDetailsComponent} from './components/event-details/event-details.component';
 import {SummaryComponent} from './components/summary/summary.component';
 import {SummaryExpansionComponent} from './components/summary-expansion/summary-expansion.component';
-
+import { registerLocaleData, DatePipe } from '@angular/common';
+import localeHe from '@angular/common/locales/he';
+import {FinihComponent} from "./components/finih/finih.component";
+registerLocaleData(localeHe);
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import {SummaryExpansionComponent} from './components/summary-expansion/summary-
     HeaderComponent,
     EventDetailsComponent,
     SummaryComponent,
-    SummaryExpansionComponent
+    SummaryExpansionComponent,
+    FinihComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +54,10 @@ import {SummaryExpansionComponent} from './components/summary-expansion/summary-
     ScrollingModule
   ],
   providers: [
+    DatePipe,
     DataService,
     MessengerService,
-    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    { provide: MAT_DATE_LOCALE, useValue: 'He' },
     { provide: LOCALE_ID, useValue: 'he' }
   ],
   bootstrap: [AppComponent]

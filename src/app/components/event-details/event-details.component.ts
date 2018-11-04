@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MessengerService } from '../../services/messenger.service';
-import { DataService} from '../../services/data-service.service';
-import {MatCheckboxChange} from '@angular/material';
+
+import {MatCheckboxChange, MatSelect} from '@angular/material';
 import {MatButtonToggleChange} from '@angular/material/typings/button-toggle';
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -13,7 +14,10 @@ import {MatButtonToggleChange} from '@angular/material/typings/button-toggle';
   styleUrls: ['./event-details.component.scss']
 })
 
-export class EventDetailsComponent implements OnInit {
+export class EventDetailsComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('entitlement') entitlement: MatSelect;
+
   section  = 'event-details';
   goToPage = 'doc-uploads';
   getBack  = 'personal-data';
@@ -28,6 +32,9 @@ export class EventDetailsComponent implements OnInit {
   isNotEligibilityFromAnotherParty;
   isForeignWorkerEmployment;
   isNotForeignWorkerEmployment;
+
+  rControl = false;
+  routeSub: Subscription;
 
   instituteAddress: any;
   instituteType: any;
@@ -46,9 +53,9 @@ export class EventDetailsComponent implements OnInit {
   ];
 
   entitlements = [
-    {name: 'המוסד לביטוח לאומי'},
-    {name: 'שלוותה'},
-    {name: 'תרומות תרומות'},
+    {id:'0',name: 'המוסד לביטוח לאומי'},
+    {id:'1',name: 'שלוותה'},
+    {id:'2',name: 'תרומות תרומות'},
   ];
 
   form = this.fb.group({
@@ -72,6 +79,10 @@ export class EventDetailsComponent implements OnInit {
     })
   });
 
+  compareObjects(o1: any, o2: any): boolean {
+    return o1.name === o2.name && o1.id === o2.id;
+  }
+
 
 
   constructor(
@@ -81,8 +92,15 @@ export class EventDetailsComponent implements OnInit {
     private fb: FormBuilder ) { }
 
   ngOnInit() {
+    this.routeSub = this.route.queryParams.subscribe(params => {
+      if(params.section === 'summary') {
+        this.rControl = true;
+      }
+    });
     this.checkIfData();
-
+  }
+  ngAfterViewInit(){
+    console.log(this.entitlement.value);
   }
   checkIfData() {
     let data: any;
@@ -186,19 +204,23 @@ export class EventDetailsComponent implements OnInit {
   }
 
   handleGoTo(e) {
-    const status: any;
+
     if (e === 'forward'){
       this.form.get('eventData').statusChanges.subscribe(st => {
         const status = st === 'VALID'; // && !this.contactData ;
       });
-      status =sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
       this.router.navigate([`/${this.goToPage}`]);
     } else {
       this.form.get('eventData').statusChanges.subscribe(st => {
         const status = st === 'VALID'; // && !this.contactData ;
       });
-      status = sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+      sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
       this.router.navigate([`/${this.getBack}`]);
     }
+  }
+  backToSummary() {
+    sessionStorage.setItem(`${this.section}`, JSON.stringify(this.form.value));
+    this.router.navigate([`/summary`]);
   }
 }

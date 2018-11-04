@@ -297,24 +297,56 @@
           </mat-button-toggle-group>
           <mat-form-field>
             <mat-label>גורמי הזכאות</mat-label>
-            <mat-select #entitlement [(value)]="factorsEntitlement" placeholder="גורמי הזכאות">
+            <mat-select #entitlement [(value)]="factorsEntitlement">
               <mat-option *ngFor= "let entitlement of entitlements"
-                          [value]="factorsEntitlement"
-                          (click)="selectEntitlement(entitlement)">
+                [value]="factorsEntitlement"
+                >
                 {{ entitlement.name }}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
+      <div *ngIf="!rControl" class="row">
         <app-lower-navigation class="row"
           buttonData="להעלאת מסמכים"
           (handleGoTo)="handleGoTo($event)"
           >
         </app-lower-navigation>
       </div>
+      <div *ngIf="rControl" class="row">
+        <div class="inner-row">
+          <div class="nav-line">
+            <button mat-button
+                    class="go-to-page "
+                    (click)="backToSummary()"
+            >
+              <span class="data-line">
+                בחזרה לדף הסיכום
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <app-footer></app-footer>
 </div>
+
+
+
+<!--<form [formGroup]="form">-->
+  <!--<div formGroupName="eventData">-->
+    <!--<mat-form-field>-->
+      <!--<mat-label>גורמי הזכאות</mat-label>-->
+      <!--<mat-select #entitlement "-->
+      <!--<div formControlName="entitlementFactors">-->
+        <!--<mat-option [ngValue]="entitlement" *ngFor= "let entitlement of entitlements"-->
+                    <!--[value]="factorsEntitlement">-->
+          <!--{{ entitlement.name }}-->
+        <!--</mat-option>-->
+        <!--</mat-select>-->
+      <!--</div>-->
+    <!--</mat-form-field>-->
+  <!--</div>-->
+<!--form>-->

@@ -5,6 +5,7 @@ import { PersonalDataComponent } from './components/personal-data/personal-data.
 import {EventDetailsComponent} from './components/event-details/event-details.component';
 import {DocUploadComponent} from "./components/doc-upload/doc-upload.component";
 import {SummaryComponent} from "./components/summary/summary.component";
+import {FinihComponent} from "./components/finih/finih.component";
 
 const routes: Routes = [
   { path: '', component: OpenComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'event-details', component: EventDetailsComponent },
   { path: 'doc-uploads', component: DocUploadComponent },
   { path: 'summary', component: SummaryComponent },
+  { path: 'finish', component: FinihComponent },
   { path: '**', component: OpenComponent }
 ];
 

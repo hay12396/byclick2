@@ -21,11 +21,46 @@
       </div>
       <div class="row" >
         <div class="inner-row">
-          <app-summary-expansion></app-summary-expansion>
+          <app-summary-expansion
+          [header]="basicInfoHeader"
+          [lines] = "basicInfoLines"
+          source     = "personal-data"
+          >
+          </app-summary-expansion>
+          <app-summary-expansion
+          [header]="basicContactHeader"
+          [lines] = "basicContactsLines"
+          source     = "personal-data"
+          >
+          </app-summary-expansion>
+          <app-summary-expansion
+            [header]="connectionHeader"
+            [lines] = "connectionLines"
+            source     = "personal-data"
+          >
+          </app-summary-expansion>
+          <app-summary-expansion
+            [header]="eventDataHeader"
+            [lines] = "eventDataLines"
+            source  = "event-details"
+          >
+          </app-summary-expansion>
+          <app-summary-expansion
+            [header]="clientResidence"
+            [lines] = "clientResidenceLines"
+            source  = "event-details"
+          >
+          </app-summary-expansion>
+          <app-summary-expansion
+            [header]="eligibilityHeader"
+            [lines] = "eligibilityKines"
+            source  = "event-details"
+          >
+          </app-summary-expansion>
         </div>
       </div>
       <app-lower-navigation class="row"
-          buttonData="לפרטי האירוע"
+          buttonData="לאישור והגשת תביעה"
           (handleGoTo)="handleGoTo($event)"
       >
       </app-lower-navigation>
