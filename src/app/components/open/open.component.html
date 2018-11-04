@@ -30,18 +30,20 @@
                       (click)="downloadConfidentialityForm()"
                       class="confidentiality_left__download-form">
                 <mat-icon>arrow_downward</mat-icon>
-                הורד טופס
+                <span class="mat-button-text">הורד טופס</span>
               </button>
             </div>
             <div class="confidentiality_right">
               <img src="../../../assets/images/doc_icon.png" alt="">
             </div>
           </div>
-          <button mat-button
-                  class="start-the-form" (click)="startTheForm()">
-            <mat-icon>arrow_back</mat-icon>
-            הגש בקשה
-          </button>
+          <div class="start-the-form-wrapper">
+            <button mat-button
+                    class="start-the-form" (click)="startTheForm()">
+              <mat-icon>arrow_back</mat-icon>
+              הגש בקשה
+            </button>
+          </div>
         </div>
       </div>
     </div>

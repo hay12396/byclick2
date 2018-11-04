@@ -8,21 +8,22 @@
 }
 
 .start-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  display: block;
+  position:absolute;
+  top:0;
+  left:0;
   height: 100%;
-  width: 100%;
+  width: 100vw;
 }
 .container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  margin-top: 69px;
   position: relative;
   top: 0!important;
   width:100vw;
-  height: calc(100vh - 140px);
+  height: calc(100vh + 40px);
   overflow-y: scroll;
   .left-part {
     display: flex;
@@ -33,103 +34,98 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      width:100%;
+      margin-left: 29px;
+      margin-top: 46px;
       img {
-        width: 100%;
-        max-width: 98%;
+        min-width: 50vw;
+        max-width: 100vw;
       }
     }
   }
   .right-part {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     height: 100%;
     flex: 50%;
     align-items: center;
+    justify-content: center;
     .right-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
       height: 100%;
+      width: 450px;
       .logo {
-        display: flex;
         margin-top: 10px;
-        width: 308px;
+        max-width: 308px;
+        width: 70%;
+        margin-bottom: 39px;
+        float: right;
+        margin-right: 54px;
         img {
           width: 100%;
           height: 116px;
           max-width: 100%;
         }
-        margin-bottom: 40px;
       }
       .headline_1 {
         color: $background-color;
-        height: 24px;
+        margin-bottom: 20px;
         width: 100%;
         text-align: center;
-        font-family: erica-regular, sans-serif;
-        font-size: 2rem;
-        line-height: 0;
+        font-size: 45px;
+        line-height: 26px;
+        clear: both;
       }
-      .disclamer {
+      .disclaimer {
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
         width: 100%;
-        height: 54px;
         color: #7A7A7A;
-        font-family: erica-light, sans-serif;
         font-size: 21px;
-        line-height: 37px;
+        line-height: 18px;
         text-align: center;
       }
       .confidentiality {
         display: flex;
         flex-direction: row;
+        justify-items: center;
         width: 100%;
-        height: 212px;
+        height: 183px;
+        margin-top: 45px;
         .confidentiality_left, .confidentiality_right {
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           height: 100%;
-          width: 95%;
+          width: 100%;
         }
         .confidentiality_left {
           display: flex;
           flex-direction: column;
           justify-content: space-around;
-          align-items: center;
           direction: rtl;
-          width: 53.5555%;
+          padding-top: 20px;
           .confidentiality_left__header {
-            width: 200px;
             color: $writing-color;
-            font-family: EricaSans, sans-serif;
-            font-size: 1rem;
+            font-size: 21px;
             line-height: 0;
+            height: 12px;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
           }
           .confidentiality_left__description  {
-            width: 95%;
-            height: 40px;
-            color: $writing-color;
-            font-family: EricaSans, sans-serif;
-            font-size: 0.9rem;
-            text-align: justify;
+            width: 200px;
+            height: 0;
+            color: #484855;
+            font-size: 18px;
           }
           .confidentiality_left__download-form {
             border: 2px solid $buttons-color;
             border-radius: 20px !important;
-            text-align: center;
+            text-align: right;
             margin-left: 5px !important;
             height: 46px;
-            max-width: 187px;
+            width: 187px;
             color: $buttons-color;
-            font-family: erica-light, sans-serif;
             font-size: 18px;
             line-height: 0;
             &:hover {
@@ -137,38 +133,42 @@
               background-color: $buttons-color;
               color: #f7f7f7;
             }
+            .mat-button-text {
+              margin-right:14px;
+            }
           }
         }
         .confidentiality_right {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: flex-end;
-          width: 95%;
+          align-items: center;
           img {
             width: 100%;
             max-width: 151px;
           }
         }
       }
-      .start-the-form {
-        display: flex;
+      .start-the-form-wrapper {
+        width:100%;
+        display: inline-flex;
         justify-content: center;
-        align-items: baseline;
-        border: 2px solid $buttons-color;
-        border-radius: 20px !important;
-        height: 54px;
-        width: 240px;
-        color: $white-color;
-        font-family: EricaSans, sans-serif;
-        font-size: 22px;
-        line-height: 23px;
-        text-align: center;
-        cursor: pointer;
-        background-color: $buttons-color;
-        margin-top: 50px;
-        .mat-icon {
-          color: #fff;
+        .start-the-form {
+          border: 2px solid #FF6300;
+          border-radius: 20px !important;
+          height: 54px;
+          width: 240px;
+          color: #ffffff;
+          font-size: 22px;
+          line-height: 23px;
+          text-align: center;
+          cursor: pointer;
+          background-color: #FF6300;
+          margin-top: 124px;
+          .mat-icon {
+            color: #fff;
+            margin-right:25px;
+          }
         }
       }
     }

@@ -1,0 +1,20 @@
+.DS_STORE
+
+/dist/
+bazel-*
+e2e_test.*
+node_modules
+
+# Include when developing application packages.
+.idea/
+
+
+# Ignore npm/yarn debug log
+npm-debug.log
+yarn-error.log
+
+# build-analytics
+.build-analytics
+
+# rollup-test output
+/modules/rollup-test/dist/

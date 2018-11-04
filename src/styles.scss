@@ -110,7 +110,6 @@ body {
     p {
       width: 100%;
       color: $headline-color;
-      font-family: 'Erica', sans-serif;
       line-height: 30px;
       font-size: 2.25rem;
       margin: 0;
@@ -121,7 +120,6 @@ body {
     p {
       width: 100%;
       color: $headline-color;
-      font-family: 'Erica', sans-serif;
       line-height: 18px;
       font-size: 1.25rem;
       margin: 0;
@@ -136,7 +134,6 @@ body {
     p {
       width: 100%;
       color: $writing-color;
-      font-family: 'Erica', sans-serif;
       line-height: 24px;
       font-size: 1.0625rem;
     }
@@ -150,7 +147,6 @@ body {
       align-items: center;
       width: 100%;
       color: $warning-color;
-      font-family: 'Erica', sans-serif;
       font-size: 1.125rem;
       font-weight: bold;
       text-align: center;
@@ -168,6 +164,7 @@ body {
 
 .mat-form-field {
   width: 100%;
+  margin-bottom: 15px;
 }
 .mat-hint, .mat-right {
   font-size: .8rem !important;
@@ -200,7 +197,6 @@ body {
   height: 54px;
   width: 240px;
   color: $white-color;
-  font-family: EricaSans, sans-serif;
   font-size: 22px;
   line-height: 23px;
   text-align: center;
@@ -297,10 +293,8 @@ body {
 }
 
 .mat-icon {
-  margin-top: 10px;
   width: 40px;
   height: 40px;
-  color: red;
 }
 .button-header {
   width: 100%;
