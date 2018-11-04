@@ -1,0 +1,105 @@
+@import "../../../css-parts/_vars";
+
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.row {
+  align-items: center!important;
+}
+.inner-row {
+  justify-content: center!important;
+  align-items:  center!important;
+}
+.data-disclaimer {
+  align-items:  center!important;
+  .data-disclaimer_headline {
+    p {
+     text-align: center;
+    }
+  }
+}
+
+.approval {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  margin-top: 50px;
+  align-self: center;
+  align-content: flex-start;
+}
+
+.savePdf {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 20px;
+    border-radius: 25px;
+    height: 52px;
+    width: 265px;
+    border: 3px solid $buttons-color;
+    button {
+     height: 52px;
+     width: 265px;
+     border: 2px solid #FF6300;
+     background-color: #FF6300;
+     p {
+       height: 17px;
+       width: 160px;
+       color: #FF6300;
+       font-family: EricaSans;
+       font-size: 18px;
+       line-height: 23px;
+       text-align: center;
+     }
+  }
+    &:hover {
+    cursor: pointer;
+  }
+
+   img {
+     width: 100%;
+     max-width: 100%;
+   }
+ }
+
+.sendToPrint {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  margin-top: 20px;
+  border-radius: 25px;
+  height: 52px;
+  width: 265px;
+  border: 3px solid dodgerblue;
+  button {
+    height: 52px;
+    width: 265px;
+    border: 2px solid #006699;
+    background-color: #006699;
+    p {
+      height: 17px;
+      width: 181px;
+      color: #006699;
+      font-family: EricaSans;
+      font-size: 18px;
+      line-height: 0;
+      text-align: center;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="main-container">
+  <div class="middle-container">
+    <div class="container">
+      <div class="row">
+        <div class="inner-row">
+          <div class=" data-disclaimer">
+            <div class="data-disclaimer_headline">
+              <p>בקשתך נקלטה בהצלחה</p>
+            </div>
+          </div>
+        </div>
+        <div class="approval" >
+          <img src="../../../assets/symbols/approval_icon.png" alt="">
+        </div>
+        <button mat-raised class="savePdf" (click)="savePdf()">
+          <p>שמור בקשה כקובץ PDF</p>
+        </button>
+        <button mat-raised class="sendToPrint" (click)="savePdf()">
+          <p>שלח סיכום בקשה להדפסה</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
