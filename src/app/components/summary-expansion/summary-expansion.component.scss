@@ -1,22 +1,25 @@
 @import "../../../css-parts/_vars";
+
 .accord.mat-accordion  {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-self: flex-end;
-  margin: 0 0 50px 0!important;
+  margin: 0 0 100px 0!important;
   width: 100%!important;
   border-right: 5px solid $warning-color;
   .mat-expansion-panel{
     width: 100%!important;
   }
-  .mat-content {
+  .mat-expansion-panel {
     display: flex;
-    justify-content: flex-end;
-    flex-direction: row-reverse!important;
+    flex-direction: column;
+    justify-content: flex-start;
   }
+
   .mat-expansion-panel-header-description {
     flex-direction: row-reverse!important;
+    justify-content: flex-start;
     align-items: center;
     font-size: 24px!important;
   }
@@ -36,6 +39,25 @@ ul {
     span.content {
       width: 30%;
       text-align: right;
+    }
+  }
+}
+
+span.mat-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column !important;
+  overflow: hidden;
+  .second-header-line {
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    .content {
+      margin-right: 10px;
+      display: flex;
+      flex-direction: row-reverse;
+      font-size: 14px;
     }
   }
 }

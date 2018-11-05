@@ -1,12 +1,19 @@
 <mat-accordion class="accord">
     <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-description>
-                <p>{{header}}</p>
-                <span class="open-accordion" (click)="editSection(source)">
-                    <img src="../../../../assets/images/edit.png">
-                </span>
-            </mat-panel-description>
+        <mat-expansion-panel-header [collapsedHeight]="customCollapsedHeight"
+            [expandedHeight]="customExpandedHeight" displayMode="faat">
+            <span class="mat-content">
+                <mat-panel-description>
+                    <p>{{header}}</p>
+                    <span class="open-accordion" (click)="editSection(source)">
+                        <img src="../../../../assets/images/edit.png">
+                    </span>
+                </mat-panel-description>
+               <div class="second-header-line">
+                <span>{{lines[0].name}}&nbsp;&nbsp;</span>
+                <span class="content">{{lines[0].content}}</span>
+                </div>
+            </span>
         </mat-expansion-panel-header>
         <ul dir="rtl">
             <li *ngFor="let line of lines">
