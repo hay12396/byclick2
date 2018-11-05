@@ -1,6 +1,7 @@
 @import "../../../css-parts/vars";
 @import "../../../css-parts/mat";
 
+
 .client-data {
   direction: rtl;
   display: flex;
@@ -19,7 +20,7 @@
   align-items: baseline;
   color: $writing-color;
   margin-top: 20px;
-  font-size: 1.2857142857142858rem;
+  font-size: 18px;
   width: 100%;
   text-align: center !important;
   .date-headline {
@@ -38,12 +39,15 @@
 //client
 #personal-data-client {
   background: url('../../../assets/symbols/client.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.client-button-radio#personal-data-client {
   background: url('../../../assets/symbols/client_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-client:hover {
   background: url('../../../assets/symbols/client_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
@@ -51,24 +55,30 @@
 //contact
 .personal-data-contact {
   background: url('../../../assets/symbols/contact.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.contact-button-radio.personal-data-contact {
   background: url('../../../assets/symbols/contact_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .personal-data-contact:hover {
   background: url('../../../assets/symbols/contact_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
 //kids
 #personal-data-kids {
   background: url('../../../assets/symbols/kids.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.kids-button-radio#personal-data-kids {
   background: url('../../../assets/symbols/kids_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-kids:hover {
   background: url('../../../assets/symbols/kids_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
@@ -76,12 +86,15 @@
 //spouse
 #personal-data-spouse {
   background: url('../../../assets/symbols/spouse.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.spouse-button-radio#personal-data-spouse {
   background: url('../../../assets/symbols/spouse_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-spouse:hover {
   background: url('../../../assets/symbols/spouse_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }

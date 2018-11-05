@@ -290,7 +290,7 @@
         <div class=" inner-row ">
           <div class="data-disclaimer">
             <div class="data-disclaimer_line">
-              <p> קרבה</p>
+              <p class="black_text"> קרבה</p>
             </div>
           </div>
         </div>
@@ -350,11 +350,11 @@
           </form>
         </div>
       </div>
-      <div *ngIf="contactData" class="row" dir="rtl">
+      <div style="margin-top: -26px;" *ngIf="contactData" class="row" dir="rtl">
         <div class=" inner-row ">
           <div class="data-disclaimer">
-            <div class="data-disclaimer_line">
-              <p>דסקליימר של המבוטח שהוא מאשר שזה איש הקשר מטעמו</p>
+            <div class="data-disclaimer_line_title data-disclaimer_line ">
+              <p class="black_text" style="text-align:center;">דסקליימר של המבוטח שהוא מאשר שזה איש הקשר מטעמו</p>
             </div>
             <div class="data-disclaimer_headline__second">
               <p>פרטי ההתקשרות</p>
@@ -367,7 +367,7 @@
         </div>
         <div class="inner-row">
           <span class="mirror-field">{{form.get('contactInfo.contactFirstName').value}}</span>
-          <span class="mirror-field">{{form.get('contactInfo.contactLastName').value}}</span>
+          <span style="margin-bottom:40px" class="mirror-field">{{form.get('contactInfo.contactLastName').value}}</span>
           <form [formGroup]="form" (ngSubmit)="saveClient()" class="client-data">
             <div formGroupName="contactInfo" class="basic-info required">
               <mat-form-field>
@@ -394,7 +394,8 @@
                   קבלת תכתובות רק באמצעות הדואר
                 </mat-checkbox>
               </div>
-              <div *ngIf="postOffice">
+              <!--div *ngIf="postOffice"-->
+                <div>
                 <mat-form-field>
                   <mat-label class="mat-label">עיר</mat-label>
                   <mat-select #contactCity placeholder="עיר" [(value)]="contactCitySelected">

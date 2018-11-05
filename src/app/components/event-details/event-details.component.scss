@@ -12,12 +12,15 @@
 
 #personal-data-illness {
    background: url('../../../assets/symbols/illness.png') no-repeat center center;
+  background-position: left 50% top 16px;
  }
 .mat-button-toggle-checked.illness-button-radio#personal-data-illness {
   background: url('../../../assets/symbols/illness_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-illness:hover {
   background: url('../../../assets/symbols/illness_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
@@ -25,12 +28,15 @@
 //accident
 #personal-data-accident {
   background: url('../../../assets/symbols/accident.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.accident-button-radio#personal-data-accident {
   background: url('../../../assets/symbols/accident_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-accident:hover {
   background: url('../../../assets/symbols/accident_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
@@ -38,36 +44,49 @@
 //hpme
 #personal-data-home {
   background: url('../../../assets/symbols/home.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.home-button-radio#personal-data-home {
   background: url('../../../assets/symbols/home_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-home:hover {
   background: url('../../../assets/symbols/home_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
 #personal-data-institution {
   background: url('../../../assets/symbols/institution.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.institution-button-radio#personal-data-institution {
   background: url('../../../assets/symbols/institution_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-institution:hover {
   background: url('../../../assets/symbols/institution_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
 
-
+.mat-label {
+  color: #484855;
+  font-size: 18px;
+}
 #personal-data-other {
   background: url('../../../assets/symbols/other.png') no-repeat center center;
+  background-position: left 50% top 16px;
+  border-right: 1px solid #484855;
 }
 .mat-button-toggle-checked.other-button-radio#personal-data-other {
   background: url('../../../assets/symbols/other_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-other:hover {
   background: url('../../../assets/symbols/other_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
@@ -75,12 +94,15 @@
 //yes
 #personal-data-yes {
   background: url('../../../assets/symbols/yes.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.yes-button-radio#personal-data-yes {
   background: url('../../../assets/symbols/yes_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-yes:hover {
   background: url('../../../assets/symbols/yes_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
@@ -88,12 +110,15 @@
 //no
 #personal-data-no {
   background: url('../../../assets/symbols/no.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.no-button-radio#personal-data-no {
   background: url('../../../assets/symbols/no_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .personal-data-no:hover {
   background: url('../../../assets/symbols/no_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
