@@ -122,16 +122,13 @@ export class PersonalDataComponent implements OnInit {
     if (!data) {
       return;
     }
-    // d  = new Date(data.basicInfo.birthday);
-    // cDate = this.contactDate.getFullYear() - 18;
-    // eDate = d.getFullYear();
-    this.contactData = true //eDate > cDate;
-    // data.basicInfo.birthday = d;
+
+    cDate = this.contactDate.getFullYear() - 18;
+    eDate = data.basicInfo.yearNumber;
+    this.contactData = eDate > cDate;
 
     this.form.patchValue({
       basicInfo: data.basicInfo });
-
-    // this.renderer.removeAttribute(this.birthday.nativeElement, 'disabled');
 
     this.form.patchValue({
       contactInfo: data.contactInfo });
@@ -148,9 +145,9 @@ export class PersonalDataComponent implements OnInit {
     this.contactStreetSelected = data.contactInfo.contactStreet;
   }
 
-  endDateChange(e) {
+  onBlurYear(e) {
     const cDate = this.contactDate.getFullYear() - 18;
-    const eDate = e.value.getFullYear();
+    const eDate = +e.target.value;
     this.contactData = eDate > cDate;
   }
   requiredForm(controlConfig:string, name: string) {

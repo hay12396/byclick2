@@ -44,7 +44,9 @@ export class SummaryComponent implements OnInit {
       this.dataStored.push(JSON.parse(sessionStorage.getItem(`${this.dataStorage[store]}`)));
     }
     this.buildBasicInfo(
-      this.dataStored[0].basicInfo.birthday,
+      this.dataStored[0].basicInfo.dayNumber,
+      this.dataStored[0].basicInfo.monthNumber,
+      this.dataStored[0].basicInfo.yearNumber,
       this.dataStored[0].basicInfo.firstName,
       this.dataStored[0].basicInfo.hmo,
       this.dataStored[0].basicInfo.idNumber,
@@ -140,9 +142,9 @@ export class SummaryComponent implements OnInit {
       {description: 'relation-type', name:'סוג קרבה:', content: contactRelationType}
     ];
   }
-  buildBasicInfo(birthday, firstName, hmo, idNumber, lastName){
-    const d = new Date(birthday);
-    const bDay = this.datePipe.transform(d,'dd/MM/yyyy');
+  buildBasicInfo(yearNumber,monthNumber, dayNumber, firstName, hmo, idNumber, lastName){
+
+    const bDay = `${yearNumber}/${monthNumber}/${dayNumber}`;
     this.basicInfoLines = [
       {description: 'full-name', name:'שם מלא:', content:`${firstName} ${lastName}`},
       {description: 'id', name:'ת.ז:', content:idNumber},
