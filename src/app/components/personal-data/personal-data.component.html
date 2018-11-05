@@ -57,9 +57,7 @@
                   (focus)="onFocus($event)"
                   placeholder="שם משפחה"
                   formControlName="lastName">
-                <mat-error>
-                  class="error"
-                  *ngIf="*ngIf="requiredForm('basicInfo','lastName')">
+                <mat-error *ngIf="requiredForm('basicInfo','lastName')">
                   יש לעדכן שם משפחה
                 </mat-error>
               </mat-form-field>
@@ -81,7 +79,7 @@
                 <mat-hint align="end">
                   {{idNumber.value?.length || 0 }} / 9
                 </mat-hint>
-                <mat-error>
+                <mat-error *ngIf="requiredForm('basicInfo','idNumber')">
                   *ngIf="requiredForm('basicInfo','idNumber')">
                   יש לעדכן תעודת זהות כולל ספרת ביקורת
                 </mat-error>
@@ -97,21 +95,69 @@
                   placeholder="קופת חולים מכבי"
                   formControlName="hmo">
               </mat-form-field>
-              <mat-form-field>
-                <input
-                  #birthday
-                  matInput
-                  (dateChange)="endDateChange($event)"
-                  [matDatepicker]="picker"
-                  placeholder="תאריך לידה"
-                  formControlName="birthday"
-                >
-                <mat-hint>
-                  DD/MM/YYYY
-                </mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
+              <div class="date-forms">
+                <div class="date-headline">
+                  תאריך לידה:
+                </div>
+                <div class="date-item">
+                  <mat-form-field>
+                    <mat-label>שנה</mat-label>
+                    <label>
+                      <input
+                        #idNumber
+                        matInput
+                        required
+                        type="number"
+                        maxlength="4"
+                        minlength="4"
+                        (focus)="onFocus($event)"
+                        formControlName="yearNumber">
+                    </label>
+                    <mat-placeholder class="date-placeholder">
+                      שנה
+                    </mat-placeholder>
+                    <mat-error *ngIf="requiredForm('basicInfo','yearNumber')">
+                      יש לעדכן שנה
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="date-item">
+                  <mat-form-field>
+                    <mat-label>חודש</mat-label>
+                    <input
+                      #idNumber
+                      matInput
+                      required
+                      type="number"
+                      maxlength="2"
+                      minlength="1"
+                      (focus)="onFocus($event)"
+                      placeholder="חודש"
+                      formControlName="monthNumber">
+                    <mat-error *ngIf="requiredForm('basicInfo','monthNumber')">
+                      יש לעדכן חודש
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="date-item">
+                  <mat-form-field>
+                    <mat-label>יום</mat-label>
+                    <input
+                      #idNumber
+                      matInput
+                      required
+                      type="number"
+                      maxlength="2"
+                      minlength="1"
+                      (focus)="onFocus($event)"
+                      placeholder="יום"
+                      formControlName="dayNumber">
+                    <mat-error *ngIf="requiredForm('basicInfo','dayNumber')">
+                      יש לעדכן יום
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -133,8 +179,8 @@
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
+              id="personal-data-client"
               class="client-button-radio"
-              [ngClass]="{'buttonChecked': isClientChecked}"
               [checked]="isClientChecked"
               (change)="selectedClient($event)"
               (click)="selectedClient($event)"
@@ -145,7 +191,7 @@
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="contact-button-radio"
+              class="contact-button-radio personal-data-contact"
               [checked]="isContactChecked"
               (change)="selectedClient($event)"
               value="contact">
@@ -250,17 +296,18 @@
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
-              class="button-radio"
+              id="personal-data-spouse"
+              class="spouse-button-radio"
               [checked]="isSpouseChecked"
               (change)="selectedRelation($event)"
-              value="spouse"
-            >
+              value="spouse">
               <div class="button-header">
                בן זוג
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="button-radio"
+              id="personal-data-kids"
+              class="kids-button-radio"
               [checked]="isChildChecked"
               (change)="selectedRelation($event)"
               value="child">
@@ -268,8 +315,9 @@
                 ילדים
               </div>
             </mat-button-toggle>
+            <!---->
             <mat-button-toggle
-              class="button-radio"
+              class="contact-button-radio personal-data-contact"
               [checked]="isContactRelatedChecked"
               (change)="selectedRelation($event)"
               value="contact">
