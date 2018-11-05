@@ -10,6 +10,8 @@ export class SummaryExpansionComponent implements OnInit {
   @Input() source: string;
   @Input() header: string;
   @Input() lines: object;
+  customExpandedHeight: string = '100px';
+  customCollapsedHeight: string = '100px';
 
   constructor(private router: Router) { }
 

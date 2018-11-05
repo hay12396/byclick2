@@ -34,10 +34,9 @@
                 class="uploadHiddenButton"
                 (change)="fileUpload($event.target.files[0])" #fileToUpload>
               <div class="uploadSelect"
-                      (click)="fileToUpload.click()">
-                <mat-icon class="material-icons">attach_file</mat-icon>
-                <!--<i class="material-icons" *ngIf="!expanded"> keyboard_arrow_down</i>-->
-                צרף קובץ
+                  (click)="fileToUpload.click()">
+                <img src="../../../assets/symbols/attach.png" alt="">
+                <p>צרף קובץ</p>
               </div>
             </div>
             <ng-container *ngIf="uploadSuccess">

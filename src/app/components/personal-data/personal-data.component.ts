@@ -154,7 +154,6 @@ export class PersonalDataComponent implements OnInit {
     this.contactData = eDate > cDate;
   }
   requiredForm(controlConfig:string, name: string) {
-    return true;
     return (
       this.form.get(`${controlConfig}.${name}`).hasError('required') &&
       this.form.get(`${controlConfig}.${name}`).dirty
