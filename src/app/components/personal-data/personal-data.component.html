@@ -2,11 +2,13 @@
 <div class="main-container">
   <div class="middle-container">
     <div class="container">
-      <div class="row">
-        <div class="stepper1">
-          <span>
-            <img src="../../../assets/symbols/stepper-3.png" alt="">
-          </span>
+      <div class="row" dir="rtl">
+        <div class=" inner-row ">
+          <div class="stepper1">
+            <span>
+              <img src="../../../assets/symbols/stepper-1.png" alt="">
+            </span>
+          </div>
         </div>
       </div>
       <div class="row" dir="rtl">
@@ -163,8 +165,7 @@
           </form>
         </div>
       </div>
-      <div  class="row" dir="rtl">
-      <!--div *ngIf="contactData" class="row" dir="rtl"-->
+      <div *ngIf="contactData" class="row" dir="rtl">
         <div class=" inner-row">
           <div class="data-disclaimer">
             <div class="data-disclaimer_headline__second">
@@ -395,8 +396,7 @@
                   קבלת תכתובות רק באמצעות הדואר
                 </mat-checkbox>
               </div>
-              <!--div *ngIf="postOffice"-->
-                <div>
+              <div *ngIf="postOffice">
                 <mat-form-field>
                   <mat-label class="mat-label">עיר</mat-label>
                   <mat-select #contactCity placeholder="עיר" [(value)]="contactCitySelected">
@@ -485,7 +485,7 @@
           </div>
         </div>
       </div>
-    <app-footer></app-footer>
+      <app-footer></app-footer>
     </div>
   </div>
 </div>
