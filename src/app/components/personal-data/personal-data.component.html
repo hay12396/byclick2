@@ -111,6 +111,7 @@
                         type="number"
                         maxlength="4"
                         minlength="4"
+                        (blur)="onBlurYear($event)"
                         (focus)="onFocus($event)"
                         formControlName="yearNumber">
                     </label>
