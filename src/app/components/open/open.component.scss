@@ -91,6 +91,9 @@
         width: 100%;
         height: 183px;
         margin-top: 45px;
+        flex-wrap: wrap;
+        width: 450px; //32.142857rem!important;
+        height: 15.142857rem;
         .confidentiality_left, .confidentiality_right {
           display: flex;
           flex-direction: column;
@@ -191,5 +194,14 @@
   mat-icon {
     margin-top: -5px;
     color: #ffffff;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .confidentiality {
+    justify-content: center;
+  }
+  .container {
+    width: 90%;
   }
 }

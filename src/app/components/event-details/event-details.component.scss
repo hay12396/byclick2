@@ -1,3 +1,6 @@
+@import "../../../css-parts/vars";
+@import "../../../css-parts/mat";
+
 .event-data {
   direction: rtl;
   display: flex;
@@ -5,3 +8,94 @@
   justify-content: flex-start;
   width: 100%;
 }
+//illness
+
+#personal-data-illness {
+   background: url('../../../assets/symbols/illness.png') no-repeat center center;
+ }
+.mat-button-toggle-checked.illness-button-radio#personal-data-illness {
+  background: url('../../../assets/symbols/illness_pressed.png') no-repeat center center;
+}
+#personal-data-illness:hover {
+  background: url('../../../assets/symbols/illness_pressed.png') no-repeat center center;
+  background-color: $background-color !important;
+  color: white !important;
+}
+
+//accident
+#personal-data-accident {
+  background: url('../../../assets/symbols/accident.png') no-repeat center center;
+}
+.mat-button-toggle-checked.accident-button-radio#personal-data-accident {
+  background: url('../../../assets/symbols/accident_pressed.png') no-repeat center center;
+}
+#personal-data-accident:hover {
+  background: url('../../../assets/symbols/accident_pressed.png') no-repeat center center;
+  background-color: $background-color !important;
+  color: white !important;
+}
+
+//hpme
+#personal-data-home {
+  background: url('../../../assets/symbols/home.png') no-repeat center center;
+}
+.mat-button-toggle-checked.home-button-radio#personal-data-home {
+  background: url('../../../assets/symbols/home_pressed.png') no-repeat center center;
+}
+#personal-data-home:hover {
+  background: url('../../../assets/symbols/home_pressed.png') no-repeat center center;
+  background-color: $background-color !important;
+  color: white !important;
+}
+#personal-data-institution {
+  background: url('../../../assets/symbols/institution.png') no-repeat center center;
+}
+.mat-button-toggle-checked.institution-button-radio#personal-data-institution {
+  background: url('../../../assets/symbols/institution_pressed.png') no-repeat center center;
+}
+#personal-data-institution:hover {
+  background: url('../../../assets/symbols/institution_pressed.png') no-repeat center center;
+  background-color: $background-color !important;
+  color: white !important;
+}
+
+
+#personal-data-other {
+  background: url('../../../assets/symbols/other.png') no-repeat center center;
+}
+.mat-button-toggle-checked.other-button-radio#personal-data-other {
+  background: url('../../../assets/symbols/other_pressed.png') no-repeat center center;
+}
+#personal-data-other:hover {
+  background: url('../../../assets/symbols/other_pressed.png') no-repeat center center;
+  background-color: $background-color !important;
+  color: white !important;
+}
+
+//yes
+#personal-data-yes {
+  background: url('../../../assets/symbols/yes.png') no-repeat center center;
+}
+.mat-button-toggle-checked.yes-button-radio#personal-data-yes {
+  background: url('../../../assets/symbols/yes_pressed.png') no-repeat center center;
+}
+#personal-data-yes:hover {
+  background: url('../../../assets/symbols/yes_pressed.png') no-repeat center center;
+  background-color: $background-color !important;
+  color: white !important;
+}
+
+//no
+#personal-data-no {
+  background: url('../../../assets/symbols/no.png') no-repeat center center;
+}
+.mat-button-toggle-checked.no-button-radio#personal-data-no {
+  background: url('../../../assets/symbols/no_pressed.png') no-repeat center center;
+}
+.personal-data-no:hover {
+  background: url('../../../assets/symbols/no_pressed.png') no-repeat center center;
+  background-color: $background-color !important;
+  color: white !important;
+}
+
+

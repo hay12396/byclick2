@@ -49,7 +49,8 @@
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
-              class="client-button-radio"
+              id="personal-data-illness"
+              class="illness-button-radio"
               [checked]="isIllnessChecked"
               (change)="causeSelected($event)"
               value="illness"
@@ -59,7 +60,8 @@
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="contact-button-radio"
+              id="personal-data-accident"
+              class="accident-button-radio"
               [checked]="isAccidentChecked"
               (change)="causeSelected($event)"
               value="accident">
@@ -104,7 +106,8 @@
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
-              class="client-button-radio"
+              id="personal-data-yes"
+              class="yes-button-radio"
               [checked]="isAnotherPolicy"
               (change)="checkAnotherPolicy($event)"
               value="yes"
@@ -114,7 +117,9 @@
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="contact-button-radio"
+              id="personal-data-no"
+              class="yes-button-radio"
+              class="no-button-radio"
               [checked]="isNotAnotherPolicy"
               (change)="checkAnotherPolicy($event)"
               value="no">
@@ -158,7 +163,8 @@
             </div>
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
-              class="button-radio"
+              id="personal-data-home"
+              class="home-button-radio"
               [checked]="isClientHome"
               (change)="selectedResidence($event)"
               value="home"
@@ -168,7 +174,8 @@
             </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="button-radio"
+              id="personal-data-institution"
+              class="institution-button-radio"
               [checked]="isClientInstitute"
               (change)="selectedResidence($event)"
               value="institute">
@@ -177,7 +184,8 @@
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="button-radio"
+              id="personal-data-other"
+              class="other-button-radio"
               [checked]="isOtherTypeResidence"
               (change)="selectedResidence($event)"
               value="other">
@@ -244,7 +252,8 @@
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
-              class="client-button-radio"
+              id="personal-data-yes-1"
+              class="yes-button-radio"
               [checked]="isForeignWorkerEmployment"
               (change)="foreignWorkerSelect($event)"
               value="yes"
@@ -254,7 +263,8 @@
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="contact-button-radio"
+              id="personal-data-no-1"
+              class="personal-data-no"
               [checked]="isNotForeignWorkerEmployment"
               (change)="foreignWorkerSelect($event)"
               value="no">
@@ -276,7 +286,8 @@
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
-              class="client-button-radio"
+               id="personal-data-yes-2"
+              class="yes-button-radio"
               [checked]="isEligibilityFromAnotherParty"
               (change)="eligibilitySelected($event)"
               value="yes"
@@ -286,7 +297,8 @@
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="contact-button-radio"
+              id="personal-data-no-2"
+              class="no-button-radio"
               [checked]="isNotEligibilityFromAnotherParty"
               (change)="eligibilitySelected($event)"
               value="no">

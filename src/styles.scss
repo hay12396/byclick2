@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import "./css-parts/_vars";
+@import "./css-parts/_mat";
 @import "./css-parts/_fonts-decleration";
 
 html {
@@ -247,80 +248,11 @@ body {
     cursor: pointer;
   }
 }
-.btn1 {
-  width: 50px!important;
-  height: 50px!important;
-  overflow: visible;
-  &:hover {
-    background-color: $background-color;
-  }
-}
-.mat-button-toggle-group{
-  align-self: flex-start!important;
-}
-.mat-button-toggle, .button-radio{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 131px!important;
-  height: 81px!important;
-  overflow: visible;
-  &:hover  {
-    background-color: $background-color !important;
-    color: white !important;
-  }
-}
 
-.mat-button-toggle, .contact-button-radio, .client-button-radio{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 131px!important;
-  height: 81px!important;
-  overflow: visible;
-}
-.contact-button-radio .mat-white {
-  display: none;
-}
-.contact-button-radio:hover .mat-black {
-  display: none;
-}
-.contact-button-radio:hover .mat-white {
-  display: flex;
-}
-.contact-button-radio:focus .mat-white {
-  display: flex;
-}
-
-.client-button-radio .mat-white {
-  display: none;
-}
-.client-button-radio:hover .mat-black {
-  display: none;
-}
-.client-button-radio:hover .mat-white {
-  display: flex;
-}
-.client-button-radio .cdk-focused .mat-white {
-  display: flex;
-}
-
-.mat-button-toggle-checked {
-  background-color: $background-color !important;
-  color: white !important;
-  fill: white;
-}
 
 .mat-icon {
   width: 40px;
   height: 40px;
-}
-.button-header {
-  width: 100%;
-  height: 10px;
-  margin-top: -20px;
 }
 @media only screen and (max-width: 1440px) {
   .main-container{

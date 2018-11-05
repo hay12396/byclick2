@@ -50,7 +50,10 @@ export class PersonalDataComponent implements OnInit {
       lastName: ['', Validators.required],
       idNumber: ['', Validators.required],
       hmo: '',
-      birthday: ['', Validators.required]
+      birthday: ['', Validators.required],
+      yearNumber: ['', Validators.required],
+      monthNumber: ['', Validators.required],
+      dayNumber: ['', Validators.required]
     }),
     contactInfo: this.fb.group ({
       contactFirstName: ['', Validators.required],
@@ -119,16 +122,16 @@ export class PersonalDataComponent implements OnInit {
     if (!data) {
       return;
     }
-    d  = new Date(data.basicInfo.birthday);
-    cDate = this.contactDate.getFullYear() - 18;
-    eDate = d.getFullYear();
-    this.contactData = eDate > cDate;
-    data.basicInfo.birthday = d;
+    // d  = new Date(data.basicInfo.birthday);
+    // cDate = this.contactDate.getFullYear() - 18;
+    // eDate = d.getFullYear();
+    this.contactData = true //eDate > cDate;
+    // data.basicInfo.birthday = d;
 
     this.form.patchValue({
       basicInfo: data.basicInfo });
 
-    this.renderer.removeAttribute(this.birthday.nativeElement, 'disabled');
+    // this.renderer.removeAttribute(this.birthday.nativeElement, 'disabled');
 
     this.form.patchValue({
       contactInfo: data.contactInfo });
@@ -151,6 +154,7 @@ export class PersonalDataComponent implements OnInit {
     this.contactData = eDate > cDate;
   }
   requiredForm(controlConfig:string, name: string) {
+    return true;
     return (
       this.form.get(`${controlConfig}.${name}`).hasError('required') &&
       this.form.get(`${controlConfig}.${name}`).dirty

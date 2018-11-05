@@ -16,26 +16,6 @@ export class AppComponent implements OnInit, OnDestroy {
     private messengerService: MessengerService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer) {
-    this.matIconRegistry.addSvgIcon(
-      'attach_file',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/attach_file.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'contact',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/contact.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'contact-white',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/contact-white.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'client',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/client.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'client-white',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/client-white.svg')
-    );
   }
   ngOnInit() {
     this.messageSubscription = this.messengerService.message.subscribe(msg => { });
