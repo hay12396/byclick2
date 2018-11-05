@@ -20,7 +20,7 @@
             </div>
             <div class="data-disclaimer_warning">
               <p>
-                <mat-icon>info</mat-icon>&nbsp; כל השדות בבקשת התביעה הינם שדות חובה.
+                <mat-icon>info_outline</mat-icon>&nbsp; כל השדות בבקשת התביעה הינם שדות חובה.
               </p>
             </div>
           </div>
@@ -32,7 +32,7 @@
           <form [formGroup]="form">
             <div formGroupName="basicInfo"  class="basic-info required">
               <mat-form-field>
-                <mat-label>שם פרטי</mat-label>
+                <mat-label class="mat-label">שם פרטי</mat-label>
                 <input
                   #firstName
                   matInput
@@ -48,7 +48,7 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field>
-                <mat-label>שם משפחה</mat-label>
+                <mat-label class="mat-label">שם משפחה</mat-label>
                 <input
                   #lastName
                   matInput
@@ -64,7 +64,7 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field>
-                <mat-label>מספר תעודת זהות</mat-label>
+                <mat-label class="mat-label">מספר תעודת זהות</mat-label>
                 <input
                   #idNumber
                   matInput
@@ -87,7 +87,7 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field>
-                <mat-label>קופ"ח מכבי</mat-label>
+                <mat-label class="mat-label">קופ"ח מכבי</mat-label>
                 <input
                   #hmo
                   matInput
@@ -97,7 +97,7 @@
                   placeholder="קופת חולים מכבי"
                   formControlName="hmo">
               </mat-form-field>
-              <mat-form-field>
+              <mat-form-field class="mat-label">
                 <input
                   #birthday
                   matInput
@@ -116,7 +116,8 @@
           </form>
         </div>
       </div>
-      <div *ngIf="contactData" class="row" dir="rtl">
+      <div  class="row" dir="rtl">
+      <!--div *ngIf="contactData" class="row" dir="rtl"-->
         <div class=" inner-row">
           <div class="data-disclaimer">
             <div class="data-disclaimer_headline__second">
@@ -126,7 +127,7 @@
               <p>מידע בנוגע לאיש הקשר</p>
             </div>
             <div class="data-disclaimer_line">
-              <p>איש קשר לתביעה</p>
+              <p class="black_text">איש קשר לתביעה</p>
             </div>
           </div>
         </div>
@@ -154,13 +155,13 @@
               </div>
             </mat-button-toggle>
           </mat-button-toggle-group>
-          <p>אם המבוטח קטין, נדרש איש קשר</p>
+          <p class="blue">אם המבוטח קטין, נדרש איש קשר</p>
         </div>
         <div class="inner-row">
           <form [formGroup]="form" (ngSubmit)="saveClient()" class="client-data">
             <div formGroupName="contactInfo" class="basic-info required">
               <mat-form-field>
-                <mat-label>שם פרטי</mat-label>
+                <mat-label class="mat-label">שם פרטי</mat-label>
                 <input
                   #contactFirstName
                   matInput
@@ -176,7 +177,7 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field>
-                <mat-label>שם משפחה</mat-label>
+                <mat-label  class="mat-label">שם משפחה</mat-label>
                 <input
                   #contactLastName
                   matInput
@@ -192,7 +193,7 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field>
-                <mat-label>מספר תעודת זהות</mat-label>
+                <mat-label class="mat-label">מספר תעודת זהות</mat-label>
                 <input
                   #contactIdNumber
                   matInput
@@ -214,7 +215,7 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field>
-                <mat-label>טלפון סלולארי</mat-label>
+                <mat-label class="mat-label">טלפון סלולארי</mat-label>
                 <input
                   #contactCellPhone
                   matInput
@@ -243,36 +244,36 @@
         <div class=" inner-row ">
           <div class="data-disclaimer">
             <div class="data-disclaimer_line">
-              <p> קרבה</p>
+              <p class="black_text"> קרבה</p>
             </div>
           </div>
         </div>
         <div class="inner-row">
           <mat-button-toggle-group #group="matButtonToggleGroup">
             <mat-button-toggle
-              class="button-radio"
-              [checked]="isSpouseChecked"
-              (change)="selectedRelation($event)"
-              value="spouse"
+                    class="button-radio"
+                    [checked]="isSpouseChecked"
+                    (change)="selectedRelation($event)"
+                    value="spouse"
             >
               <div class="button-header">
-               בן זוג
+                בן זוג
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="button-radio"
-              [checked]="isChildChecked"
-              (change)="selectedRelation($event)"
-              value="child">
+                    class="button-radio"
+                    [checked]="isChildChecked"
+                    (change)="selectedRelation($event)"
+                    value="child">
               <div class="button-header">
                 ילדים
               </div>
             </mat-button-toggle>
             <mat-button-toggle
-              class="button-radio"
-              [checked]="isContactRelatedChecked"
-              (change)="selectedRelation($event)"
-              value="contact">
+                    class="button-radio"
+                    [checked]="isContactRelatedChecked"
+                    (change)="selectedRelation($event)"
+                    value="contact">
               <div class="button-header">
                 איש קשר
               </div>
@@ -283,15 +284,78 @@
           <form [formGroup]="form" (ngSubmit)="saveClient()" class="client-data">
             <div formGroupName="contactInfo" class="basic-info required">
               <mat-form-field>
-                <mat-label>סוג קרבה</mat-label>
+                <mat-label class="mat-label">סוג קרבה</mat-label>
                 <input
-                  #contactRelationType
-                  matInput
-                  required
-                  type="text"
-                  (focus)="onFocus($event)"
-                  placeholder="סוג קרבה"
-                  formControlName="contactRelationType"
+                        #contactRelationType
+                        matInput
+                        required
+                        type="text"
+                        (focus)="onFocus($event)"
+                        placeholder="סוג קרבה"
+                        formControlName="contactRelationType"
+                >
+                <mat-error *ngIf="requiredForm('contactInfo','contactRelationType')">
+                  יש לעדכן את סוג הקרבה
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--div *ngIf="contactData" class="row" dir="rtl"-->
+      <div  class="row" dir="rtl">
+        <div class=" inner-row ">
+          <div class="data-disclaimer">
+            <div class="data-disclaimer_line">
+              <p> קרבה</p>
+            </div>
+          </div>
+        </div>
+        <div class="inner-row">
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle
+                    class="button-radio"
+                    [checked]="isSpouseChecked"
+                    (change)="selectedRelation($event)"
+                    value="spouse"
+            >
+              <div class="button-header">
+                בן זוג
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+                    class="button-radio"
+                    [checked]="isChildChecked"
+                    (change)="selectedRelation($event)"
+                    value="child">
+              <div class="button-header">
+                ילדים
+              </div>
+            </mat-button-toggle>
+            <mat-button-toggle
+                    class="button-radio"
+                    [checked]="isContactRelatedChecked"
+                    (change)="selectedRelation($event)"
+                    value="contact">
+              <div class="button-header">
+                איש קשר
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="inner-row">
+          <form [formGroup]="form" (ngSubmit)="saveClient()" class="client-data">
+            <div formGroupName="contactInfo" class="basic-info required">
+              <mat-form-field>
+                <mat-label class="mat-label">סוג קרבה</mat-label>
+                <input
+                        #contactRelationType
+                        matInput
+                        required
+                        type="text"
+                        (focus)="onFocus($event)"
+                        placeholder="סוג קרבה"
+                        formControlName="contactRelationType"
                 >
                 <mat-error *ngIf="requiredForm('contactInfo','contactRelationType')">
                   יש לעדכן את סוג הקרבה
@@ -322,7 +386,7 @@
           <form [formGroup]="form" (ngSubmit)="saveClient()" class="client-data">
             <div formGroupName="contactInfo" class="basic-info required">
               <mat-form-field>
-                <mat-label>דוא"ל</mat-label>
+                <mat-label class="mat-label">דוא"ל</mat-label>
                 <input
                   #contactEmail
                   matInput
@@ -347,7 +411,7 @@
               </div>
               <div *ngIf="postOffice">
                 <mat-form-field>
-                  <mat-label>עיר</mat-label>
+                  <mat-label class="mat-label">עיר</mat-label>
                   <mat-select #contactCity placeholder="עיר" [(value)]="contactCitySelected">
                     <mat-option *ngFor="let city of cities"
                                 [value]="contactCitySelected"
@@ -360,7 +424,7 @@
                   </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                  <mat-label>רחוב</mat-label>
+                  <mat-label class="mat-label">רחוב</mat-label>
                   <mat-select #contactStreet placeholder="רחוב" [(value)]="contactStreetSelected">
                     <mat-option *ngFor="let street of streets"
                         [value]="contactStreetSelected"
@@ -375,7 +439,7 @@
                 <div class="two-fields">
                   <div class="field-one">
                     <mat-form-field>
-                  <mat-label>מספר בית</mat-label>
+                  <mat-label class="mat-label">מספר בית</mat-label>
                   <input
                     #contactHouseNumber
                     matInput
@@ -392,7 +456,7 @@
                   </div>
                   <div class="field-two">
                     <mat-form-field>
-                      <mat-label>מיקוד</mat-label>
+                      <mat-label class="mat-label">מיקוד</mat-label>
                       <input
                         #contactZipCode
                         matInput

@@ -84,6 +84,9 @@ body {
 
 }
 
+.mat-form-field-underline {
+  height: 2px;
+}
 
 .inner-row {
   display: flex;
@@ -95,6 +98,10 @@ body {
   p {
     width: 100%;
     text-align: right;
+  }
+  .blue {
+    color: #006699;
+    font-size: 16px;
   }
 }
 .data-disclaimer {
@@ -113,7 +120,12 @@ body {
       line-height: 30px;
       font-size: 2.25rem;
       margin: 0;
+      .black_text {
+        color: #484855;
+        font-size: 18px;
+      }
     }
+
   }
   .data-disclaimer_headline__second {
     width: 100%;
@@ -121,8 +133,13 @@ body {
       width: 100%;
       color: $headline-color;
       line-height: 18px;
-      font-size: 1.25rem;
+      font-size: 18px;
       margin: 0;
+
+      .black_text {
+        color: #484855;
+        font-size: 18px;
+      }
     }
   }
   .data-disclaimer_line {
@@ -132,23 +149,27 @@ body {
     //align-self: flex-start;
     width: 100%!important;
     p {
-      width: 100%;
-      color: $writing-color;
-      line-height: 24px;
-      font-size: 1.0625rem;
+      color: #7A7A7A;
+      font-size: 16px;
+      line-height: 18px;
+      .black_text {
+        color: #484855;
+        font-size: 18px;
+      }
     }
+
   }
 
   .data-disclaimer_warning {
     width: 100%;
     p {
+      display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       width: 100%;
       color: $warning-color;
-      font-size: 1.125rem;
-      font-weight: bold;
+      font-size: 18px;
       text-align: center;
       vertical-align: middle;
       line-height: 40px;
@@ -164,7 +185,7 @@ body {
 
 .mat-form-field {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 .mat-hint, .mat-right {
   font-size: .8rem !important;
