@@ -1,5 +1,10 @@
 @import "../../../css-parts/_vars";
 
+
+.edit-image {
+  width: 26px;
+  height:26px;
+}
 .accord.mat-accordion  {
   display: flex;
   flex-direction: row;
@@ -7,7 +12,7 @@
   align-self: flex-end;
   margin: 0 0 100px 0!important;
   width: 100%!important;
-  border-right: 5px solid $warning-color;
+  border-right: 3px solid $warning-color;
   .mat-expansion-panel{
     width: 100%!important;
   }

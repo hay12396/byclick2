@@ -109,24 +109,33 @@
 //yes-1
 #personal-data-yes-1 {
   background: url('../../../assets/symbols/yes.png') no-repeat center center;
+  background-position: left 50% top 16px;
+
 }
 .mat-button-toggle-checked.yes-button-radio#personal-data-yes-1 {
   background: url('../../../assets/symbols/yes_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
+
 }
 #personal-data-yes-1:hover {
   background: url('../../../assets/symbols/yes_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
 //yes-1
 #personal-data-yes-2 {
   background: url('../../../assets/symbols/yes.png') no-repeat center center;
+  background-position: left 50% top 16px;
+
 }
 .mat-button-toggle-checked.yes-button-radio#personal-data-yes-2 {
   background: url('../../../assets/symbols/yes_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-yes-2:hover {
   background: url('../../../assets/symbols/yes_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
@@ -149,24 +158,30 @@
 // no-1
 #personal-data-no-1 {
   background: url('../../../assets/symbols/no.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.no-button-radio#personal-data-no-1 {
   background: url('../../../assets/symbols/no_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-no-1:hover {
   background: url('../../../assets/symbols/no_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
 // no-2
 #personal-data-no-2 {
   background: url('../../../assets/symbols/no.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 .mat-button-toggle-checked.no-button-radio#personal-data-no-2 {
   background: url('../../../assets/symbols/no_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
 }
 #personal-data-no-2:hover {
   background: url('../../../assets/symbols/no_pressed.png') no-repeat center center;
+  background-position: left 50% top 16px;
   background-color: $background-color !important;
   color: white !important;
 }
