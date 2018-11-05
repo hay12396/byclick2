@@ -91,6 +91,9 @@ body {
   height: 2px;
 }
 
+.inner-row-lower-nav {
+  width: calc(65.575963% + 100px);
+}
 .inner-row {
   display: flex;
   flex-direction: column;
