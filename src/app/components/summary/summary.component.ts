@@ -11,7 +11,7 @@ export class SummaryComponent implements OnInit {
 
   section = 'summary';
   goToPage = 'finish';
-  getBack  = 'summary';
+  getBack  = 'doc-uploads';
   dataStorage = ['personal-data', 'event-details', 'doc-uploads'];
   dataStored = [];
   basicInfo;
